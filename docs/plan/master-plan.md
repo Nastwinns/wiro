@@ -21,7 +21,7 @@ owner: Jean Balin (solo + AI agents, 20 h+/week)
 | WS5 Pilots | Jean (network) | 2–3 startup pilots + 1 administration |
 | WS6 Hosting & partners | Jean | DC partners SN / CI / KE, integrator programme |
 | WS7 Legal & entity | Jean + counsel | entity (Africa / Mauritius), CGV/DPA, trademark |
-| WS8 Brand & name | Jean + designer (optional later) | Ubao validation, logo, A/B direction choice |
+| WS8 Brand & name (A/B test: 5 founders/CTOs, 1–2 DSI/decision-makers, public X/LinkedIn poll) | Jean + designer (optional later) | Ubao validation, logo, A/B direction choice |
 
 ## 2. Timeline (weeks from Mon 16 Nov 2026)
 | Weeks | WS1–2 Product/Design | WS3 Engineering | WS4–8 Business |
@@ -48,7 +48,7 @@ Assets: screen recordings from Penpot prototypes first, then real app. Metrics: 
 
 ## 5. Pilot plan (WS5)
 - Startups (2–3 from network): onboarding call, weekly feedback, success = team uses it for 1 workshop + 1 spec/week for 4 weeks; LOI → paid at v1 with founder discount.
-- Administration (1 via decision-maker): discovery (use cases, hosting constraints, procurement path), proposal = 60–90-day pilot on their infra or in-country DC, delivered with a local integrator; success criteria signed upfront.
+- Administration (1 via decision-maker) — **country: Senegal** (sovereign cloud project, Orange Business/Sonatel hosting partner): discovery (use cases, hosting constraints, procurement path), proposal = 60–90-day pilot on their infra or in-country DC, delivered with a local integrator; success criteria signed upfront.
 
 ## 6. Hosting & partners (WS6)
 Team Cloud first in Senegal (Orange Business/Sonatel), Côte d'Ivoire (Raxio Abidjan), Kenya (IXAfrica / Africa Data Centres). Partner programme v0: Registered → Certified → Premier; partners keep services, 20–30 % margin on subscriptions; certification = deploy + admin + facilitator.
@@ -72,7 +72,7 @@ Options to compare with counsel: Senegal (SAS/SARL, OHADA, access to UEMOA publi
 1. Review brief + PRD v0.2 (30 min).
 2. Penpot: install MCP locally, import tokens/fonts, run A0 (A vs B).
 3. Swahili native-speaker check on "Ubao" (+ GitHub org `ubaohq` / domain check).
-4. Approve making the repo public (I'll prepare README/CONTRIBUTING/roadmap + licence/secrets scan before you push).
+4. Create GitHub org **`ubaohq`**; README/ROADMAP/CONTRIBUTING/THIRD_PARTY_NOTICES ready; secrets scan clean; **resolve vendored-skills licences (see THIRD_PARTY_NOTICES TODO)** before the first public push.
 5. Run `bmad-check-implementation-readiness`, then `bmad-create-epics-and-stories`.
 6. Write ADR-0004 (renderer) after S0 spike; ADR-0008 (mobile shell); ADR-0009 (entity).
 7. List 10 pilot targets (5 startups, 3 administrations, 2 integrators).
