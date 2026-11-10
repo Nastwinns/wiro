@@ -19,7 +19,7 @@ NFR-O1 requires offline for all features, including global search across docs + 
 
 ## Recommendation
 **Hybrid, shared normaliser:** C (`wiro-search`, Rust inverted index with BM25, prefix + edit-distance-1 fuzzy, per-page segments, updated incrementally from CRDT change events, persisted in the local store) on **all clients**, and `tantivy` (B excluded) on the **server** for cross-workspace/admin/large-corpus search. One crate `wiro-text-norm` (Unicode NFKD, strip combining marks selectively — keep Yoruba tone/dot-below as secondary key, fold Arabic alef/yaa/haa variants and harakat/tatweel, casefold, Hausa hooked letters ɓ ɗ ƙ ↔ b d k fallback) used by both so client and server agree. E is the allowed throw-away prototype for S1 if `wiro-search` slips. D is the fallback if C's ranking/persistence proves costly (desktop-only).
-Use `icu`/`unicode-normalization` (MIT/Apache) and `unicode-segmentation` (MIT/Apache); `tantivy` is MIT, `rusqlite` MIT — compliant. Arabic stemming optional later.
+Use `unicode-normalization` (`(MIT OR Apache-2.0) AND Unicode-3.0`) or ICU4X `icu_normalizer` (`Unicode-3.0`), and `unicode-segmentation` (MIT OR Apache-2.0); `tantivy` is MIT, `rusqlite` MIT. **Licence gate:** `Unicode-3.0` (Unicode data licence, permissive) is not in the AGENTS.md allow-list — maintainer must explicitly allow it in `deny.toml` or we ship our own normalisation tables; decision required before Story 0.5. Arabic stemming optional later.
 
 ## Measurement criteria (spike, ≤ 2 days, part of Story 0.5 follow-up)
 Corpus: 5 000 pages / 5 M words, mixed FR/EN/Wolof/Hausa/Yoruba/Arabic (synthetic + Wikipedia dumps in those languages, CC-BY-SA data used only as test input, not shipped).

@@ -18,12 +18,13 @@ verdict: CONCERNS (proceed with S0; resolve items before S1/S2)
 
 ## Blocking before S1
 1. S0 spike result Loro + ProseMirror (Story 0.5) → go/no-go.
-2. ADR-0008 mobile shell (Tauri mobile WebView perf on low-end Android) — measure in Story 0.4.
+2. ADR-0008 mobile shell (proposed: PWA first, Tauri 2 mobile if bench passes) — measure in Story 0.4, then decide.
+3. Licence gate: allow `Unicode-3.0` (ICU4X / unicode-normalization data) or not — see ADR-0007.
 
 ## Blocking before S2
-3. ADR-0004 renderer (vello_gpu vs custom wgpu) from perf bench.
+4. ADR-0004 renderer (proposed: vello_gpu WebGL2 + vello_cpu fallback) — decide from perf bench.
 
 ## Non-blocking
 Penpot DS (A/B), name validation, entity, partner terms.
 
-Next: `bmad-sprint-planning` → `sprint-status.yaml`; then `bmad-create-story` for Story 0.1.
+Next: maintainer decisions on proposed ADRs (PR #1); then `bmad-create-story` for Story 0.1.
