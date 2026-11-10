@@ -34,6 +34,7 @@ Work file by file; one prompt per step. Each prompt = "Read docs/ux/screens/<fil
 ### Phase A — Design system (`Wiro — Design System`)
 | # | Prompt |
 |---|---|
+| A0 | Build **two foundation pages side by side**: Direction A Malachite and Direction B Indigo Adire (docs/ux/color-analysis-africa.md §3), each with Home, Board and Pricing hero mock — for user testing before choosing. |
 | A1 | Create pages Foundations / Components / Patterns. On Foundations, render colour swatches (light & dark) from tokens with contrast labels, type scale (Inter, Fraunces, Mono) with FR + Wolof/Hausa/Yoruba sample strings (ë ñ ŋ ɓ ɗ ƙ ẹ ọ ṣ), spacing, radius, shadows, motion notes. |
 | A2 | Components (variants + states default/hover/active/focus/disabled): Button (primary, secondary, ghost, danger; sm/md/lg), IconButton, Input, Textarea, Select, Combobox, Checkbox, Radio, Switch, Segmented control (Doc | Board), Tabs, Tooltip, Popover, Menu, Dialog, Sheet (mobile), Toast, Badge/Pill (status, offline, guest, sovereign-gold), Avatar + group, Breadcrumb, Tree row, Table row/cell, Kanban card, Comment, Empty state, Skeleton, Progress, OTP input, Kbd shortcut. |
 | A3 | Canvas components: tool button, toolbar (vertical/horizontal), quick toolbar, sticky (8 tints, light/dark), shapes, connector with label, frame with title tab, comment pin, cursor with name, selection box & handles, minimap, zoom cluster, vote dot, timer pill, workshop bar. |

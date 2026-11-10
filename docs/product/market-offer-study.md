@@ -47,7 +47,7 @@ Whole stack is MIT (audit P7: "no capped self-host"). With MIT code, an administ
 | **B. Open core** | Enterprise modules (SSO/SCIM, audit, retention, air-gap tooling, admin) under commercial licence | Clear upsell, proven in collaboration OSS | Contradicts "100 % MIT", risks the AFFiNE criticism | Mattermost, Rocket.Chat |
 | **C. Hybrid** | Core + SSO/audit MIT; only **sovereign ops tooling** (air-gap installer, HA operator, compliance reports, fleet admin) commercial | Basics free (no "SSO tax"), sovereign value captured | Boundary to maintain | GitLab-like split |
 
-Recommendation: see §3bis — **A + partner network**, C as fallback. [DECISION PENDING]
+**Decided (2026-11-10): Model A — 100 % MIT + subscription + certified partner network.** C kept as fallback lever.
 
 
 ## 3bis. What actually works in Africa (audit, Nov 2026)
@@ -63,7 +63,7 @@ Recommendation: see §3bis — **A + partner network**, C as fallback. [DECISION
 | **Partner-led distribution beats direct at scale** | Yango (fleet operators), Odoo (partners), Rocket.Chat/Mattermost (resellers, MSPs, SIs incl. Dimension Data Johannesburg) | Channel: integrators (gov), CSP/DC operators (hosting: Orange Business Sénégal, Raxio, ADC, Galaxy Backbone), agencies (S1) |
 
 ### Conclusion on the business model
-Evidence favours **Model A — 100 % MIT + subscription, distributed through a certified partner network** (Odoo/Nextcloud pattern), with Model C (commercial sovereign-ops tooling) as a fallback lever if large self-hosters don't convert. Governments pay for: certified/LTS builds, security advisories, SLA, compliance & tender pack, integration and training — delivered with local partners who are often mandatory in tenders. **[Recommendation — awaiting Jean's validation]**
+Evidence favours **Model A — 100 % MIT + subscription, distributed through a certified partner network** (Odoo/Nextcloud pattern), with Model C (commercial sovereign-ops tooling) as a fallback lever if large self-hosters don't convert. Governments pay for: certified/LTS builds, security advisories, SLA, compliance & tender pack, integration and training — delivered with local partners who are often mandatory in tenders. **[DECIDED by Jean, 2026-11-10]**
 
 Partner programme sketch [ASSUMPTION]: Registered → Certified → Premier; partner keeps all services revenue; 20–30 % margin on subscriptions resold; certification (deploy, admin, facilitator); deal registration; FCFA/NGN/KES price books; co-marketing.
 
