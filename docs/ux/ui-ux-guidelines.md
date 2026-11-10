@@ -29,7 +29,7 @@ Identical rounded card grids with grey shadows · purple/blue gradients · glass
 |---|---|---|
 | **impeccable** (audit, critique, polish, 59 detector rules) | review every Penpot screen & UI PR | ✔ installed (from pass-spark) |
 | design, hooked-ux, onboarding, signup, cro, site-architecture, copywriting | screens, onboarding, landing | ✔ installed |
-| **szilu/ux-designer-skill** — includes *canvas navigation*, *canvas objects/performance*, *presence*, *CRDT/offline sync UX*, i18n/RTL, data tables, ethical design | the most domain-relevant skill for a whiteboard | ⏳ needs your OK to download |
+| **szilu/ux-designer-skill** — includes *canvas navigation*, *canvas objects/performance*, *presence*, *CRDT/offline sync UX*, i18n/RTL, data tables, ethical design | the most domain-relevant skill for a whiteboard | ✔ installed in `.agents/skills/ux-designer/` (MIT, v. Nov 2026) |
 | **Anthropic frontend-design** | design direction for new pages (landing) | ⏳ needs OK |
 | **Vercel web-design-guidelines** | `file:line` review of UI code before merge | ⏳ needs OK |
 | **UI UX Pro Max** | style/palette/font database for desktop & mobile | ⏳ needs OK (CLI) |

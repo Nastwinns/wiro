@@ -13,7 +13,7 @@ created: 2026-11-10
    - **Cloud**: Account → Integrations → MCP Server → copy URL with `userToken` → `export PENPOT_MCP_URL=…` → set `penpot-cloud.enabled: true`.
 3. Fonts in Penpot: upload **Inter**, **Fraunces**, **JetBrains Mono**, **Noto Sans** (+ Arabic) — all OFL.
 4. Import tokens: Penpot Tokens panel → Import → `design/tokens/tokens.json` (DTCG). Create themes **light** / **dark** from the `light` and `dark` sets; `primitive` set always active.
-5. Run `opencode` at repo root. It loads `AGENTS.md`, `DESIGN.md`, UX spec and this file. Skills in `.claude/skills/` (impeccable, design, onboarding, signup, cro, site-architecture…) — if OpenCode doesn't auto-discover them, reference the `SKILL.md` path in your prompt.
+5. Run `opencode` at repo root. It loads `AGENTS.md`, `DESIGN.md`, UX spec and this file. Skills in `.claude/skills/` and `.agents/skills/ux-designer/` (use its references 12a/12b presence & sync, 13a/13b canvas for B5–B6) (impeccable, design, onboarding, signup, cro, site-architecture…) — if OpenCode doesn't auto-discover them, reference the `SKILL.md` path in your prompt.
 
 ## 1. Global rules to paste at the start of every session
 ```
@@ -25,7 +25,7 @@ Reference viewport 1366×768 must fit; also produce 1440×900. Light first, then
 Every screen: default + empty + loading + offline + error/read-only states as separate frames.
 Use French UI copy (vouvoiement) and keep EN keys in layer names: e.g. "canvas.toolbar.sticky".
 Name frames exactly "S-xx.y <Name> / <Viewport> / <Theme> / <State>".
-After each screen, run a self-critique with the impeccable skill (critique → audit) and fix issues before moving on.
+After each screen, run a self-critique with the ux-designer skill review workflow + impeccable (critique → audit) and fix issues before moving on.
 ```
 
 ## 2. Production order (prompts)
