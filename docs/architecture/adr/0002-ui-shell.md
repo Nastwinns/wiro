@@ -1,6 +1,6 @@
 # ADR-0002 — UI shell for desktop & web
 
-- Status: **proposed** (decision by Jean Balin)
+- Status: **accepted** (Jean Balin, 2026-11-10)
 - Date: 2026-11-10
 
 ## Context
@@ -15,4 +15,4 @@ See docs/architecture/project-structure.md and docs/research/competitive-audit.m
 Option 1 variant — "Figma model": Tauri 2 shell + thin TS chrome (shadcn) + Rust→WASM engines (canvas, CRDT, storage, sync). See docs/architecture/ui-stack-analysis.md.
 
 ## Decision
-_pending — awaiting Jean_
+"Figma model" accepted: Tauri 2 shell + thin TS chrome (shadcn/ui) + Rust→WASM engines (canvas, CRDT, storage, sync). Same frontend for desktop and self-hosted web.
