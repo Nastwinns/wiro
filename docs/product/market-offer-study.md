@@ -47,7 +47,25 @@ Whole stack is MIT (audit P7: "no capped self-host"). With MIT code, an administ
 | **B. Open core** | Enterprise modules (SSO/SCIM, audit, retention, air-gap tooling, admin) under commercial licence | Clear upsell, proven in collaboration OSS | Contradicts "100 % MIT", risks the AFFiNE criticism | Mattermost, Rocket.Chat |
 | **C. Hybrid** | Core + SSO/audit MIT; only **sovereign ops tooling** (air-gap installer, HA operator, compliance reports, fleet admin) commercial | Basics free (no "SSO tax"), sovereign value captured | Boundary to maintain | GitLab-like split |
 
-Recommendation: **A, with C kept as fallback** — sell trust, operations and compliance, not features. [DECISION PENDING]
+Recommendation: see §3bis — **A + partner network**, C as fallback. [DECISION PENDING]
+
+
+## 3bis. What actually works in Africa (audit, Nov 2026)
+
+| Pattern | Evidence | Lesson for us |
+|---|---|---|
+| **Open source + paid subscription, sold & implemented by certified local partners** | Odoo: partners keep 100 % of services, up to 20 % commission on Enterprise; Ergobit (Dakar) deployed Odoo at Senegal's Assemblée nationale and SONAGED; "Odoo Experience 2026 Africa" partner recruitment | Build a **partner programme from day 1**; we sell subscriptions, partners earn on deployment, localisation, training, support L1 |
+| **Gov collaboration suites are bought through tenders won by local integrator consortia** | BEAC (Central Bank, CEMAC) awarded a full collaborative suite (Zimbra mail + intranet/project tools + document management) to the Trust System / BeezTM / Jalios consortium (Cameroon) for **569 254 860 FCFA HT** (~€870k) | Be the **collaboration/canvas brick** inside integrator bids; provide a tender pack (specs, compliance, references, pricing grid in FCFA) |
+| **States are formalising open source** | Kenya: first government OSPO (19 Mar 2026); Burkina Faso: BurkinOS + LibreOffice in administration; Sierra Leone national OSS policy (Nov 2025); Morocco Idarati X.0 uses OSS | MIT licence + auditable code is a **procurement argument**, not a weakness |
+| **Enterprise OSS subscriptions for universities** | North-West University (South Africa): Nextcloud + ONLYOFFICE, 6 500 users, moved from self-install to Enterprise subscription | Customers start free self-hosted, then **convert to subscription when it becomes critical** — design the upgrade path |
+| **Local-currency list prices, invoices, annual prepay for larger deals** | Current Ventures (Sep 2026), Hackhouse (Jan 2026): monthly local-currency plans for SMEs, invoice terms for large customers | FCFA/NGN/KES price books; S2 = annual invoice; S1 = monthly/quarterly |
+| **African-built suites compete on price + languages** | Cynoia: free ≤10 users, €7 / €12 per user, FR/EN/ES/SW/WO/AR, "works on 2G", ~7 000 users claimed, HQ Marseille, staff −54 % YoY (LinkedIn) | Price alone is not a moat (Cynoia's traction is modest). Our edge: **docs+canvas, MIT, sovereign deployment, performance** |
+| **Partner-led distribution beats direct at scale** | Yango (fleet operators), Odoo (partners), Rocket.Chat/Mattermost (resellers, MSPs, SIs incl. Dimension Data Johannesburg) | Channel: integrators (gov), CSP/DC operators (hosting: Orange Business Sénégal, Raxio, ADC, Galaxy Backbone), agencies (S1) |
+
+### Conclusion on the business model
+Evidence favours **Model A — 100 % MIT + subscription, distributed through a certified partner network** (Odoo/Nextcloud pattern), with Model C (commercial sovereign-ops tooling) as a fallback lever if large self-hosters don't convert. Governments pay for: certified/LTS builds, security advisories, SLA, compliance & tender pack, integration and training — delivered with local partners who are often mandatory in tenders. **[Recommendation — awaiting Jean's validation]**
+
+Partner programme sketch [ASSUMPTION]: Registered → Certified → Premier; partner keeps all services revenue; 20–30 % margin on subscriptions resold; certification (deploy, admin, facilitator); deal registration; FCFA/NGN/KES price books; co-marketing.
 
 ## 4. Proposed offer ladder (prices [ASSUMPTION], XOF shown because pegged to EUR: 1 € = 655.957 XOF)
 
@@ -77,4 +95,5 @@ Billing rules (from audit P4): only admins add paid seats; guests/viewers never 
 - Profile Cynoia, Collaboard Africa presence, Microsoft Whiteboard/Loop bundling in gov tenders.
 
 ## Sources
+Odoo partnership page, Ergobit partner page (Senegal), Odoo Experience 2026 Africa, Serpa Africa (Sep 2026); BEAC award notice n°105/BEAC/DGE-DSI (Feb 2026); Le Geek.net (Jun 2026) on Kenya OSPO / BurkinOS / Sierra Leone; Nextcloud NWU case; Cynoia pricing, platform, AI pages & LinkedIn; Current Ventures (Sep 2026); Hackhouse (Jan 2026); Techpoint Yango (Nov 2026).
 Miro pricing page; Collaboard vs Miro (Sep 2026) & OMR Collaboard pricing; Conceptboard pricing; Boardmix pricing (Rework 2026); Rocket.Chat plans & partners; Nextcloud channel partner programme; Mattermost partners & open-core interview; Kolonell Dakar stack 2026; Accion Venture Lab tools survey 2025; LaunchPad.ng 2026; Cynoia blog; TechCabal Dec 2025; Galaxy Backbone sovereign cloud (Techpoint, Nov 2026); NITDA 2026; Kenya Cloud Policy 2025; Orange Business Sénégal AWS Wavelength; Raxio marketplace; ADC marketplace; Africa DCA "Data Centres in Africa 2026"; Seneweb Aug 2026.
