@@ -10,8 +10,8 @@
 # ─────────────────────────────────────────────────────────────────
 
 [core]
-user_name = "Rcw-019ao4c8gnp8sbn5apk5dzdq"
-communication_language = "English"
+user_name = "Balin"
+communication_language = "French"
 
 [modules.bmm]
 user_skill_level = "intermediate"
