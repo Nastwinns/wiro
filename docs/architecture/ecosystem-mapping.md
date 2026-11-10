@@ -57,7 +57,7 @@ Source: `Project/pass-spark/package.json` (your production stack). With ADR-0002
 ⚠ = licence needs a check (MPL-2.0 is file-level copyleft: usable as a dependency in an MIT project, but flag it in ADRs).
 
 ## Skills imported from pass-spark into `.claude/skills/`
-UI/UX: impeccable, design, hooked-ux, onboarding, signup, cro, site-architecture, aidesigner-frontend.
+UI/UX: impeccable, design, hooked-ux, onboarding, signup, cro, site-architecture.
 Messaging/GTM: copywriting, copy-editing, storybrand-messaging, product-marketing, marketing-psychology, obviously-awesome, launch, social.
 Research/biz: jobs-to-be-done, mom-test, customer-research, competitor-profiling, crossing-the-chasm, pricing, hundred-million-offers, predictable-revenue.
 Tech: rust-engineer, websocket-engineer.
