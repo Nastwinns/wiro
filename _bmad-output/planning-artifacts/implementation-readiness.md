@@ -11,7 +11,7 @@ verdict: CONCERNS (proceed with S0; resolve items before S1/S2)
 | Brief | ✅ | complete (coaching round 1) |
 | PRD v0.2 | ✅ with assumptions | NFR targets set; some [ASSUMPTION] tags remain (pricing NGN/KES, server sizing) |
 | UX spec + 14 screen files | ✅ | Penpot designs not yet produced (WS2) |
-| Architecture | ⚠ | ADR-0004 renderer and ADR-0007 WASM search pending; ADR-0008 mobile shell to write |
+| Architecture | ⚠ | ADR-0004 (renderer + bench protocol), 0007 (search), 0008 (mobile shell), 0009 (legal/billing skeleton) drafted as *proposed* — awaiting measurements (Story 0.4/0.5 spikes) and decision by Jean Balin; architecture.md v0.2 adds API, permissions, sync, observability, tests, supply-chain, i18n, perf budget |
 | Epics/stories | ⚠ | 14 epics / 65 stories; ACs as checklists, to refine per story; story-level estimates missing |
 | Cohesion PRD↔UX↔Arch↔Epics | ✅ | FR coverage map complete (AI deliberately post-v1) |
 | Risks | ⚠ | solo capacity vs scope incl. mobile; loro-prosemirror maturity; WKWebView canvas perf |
