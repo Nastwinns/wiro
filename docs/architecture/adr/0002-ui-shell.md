@@ -11,5 +11,8 @@ See docs/architecture/project-structure.md and docs/research/competitive-audit.m
 2. GPUI (Zed) — native GPU, top perf, Windows/web less mature
 3. Dioxus (webview now, Blitz native later) — Rust end to end, younger
 
+## Recommendation
+Option 1 variant — "Figma model": Tauri 2 shell + thin TS chrome (shadcn) + Rust→WASM engines (canvas, CRDT, storage, sync). See docs/architecture/ui-stack-analysis.md.
+
 ## Decision
-_pending_
+_pending — awaiting Jean_
