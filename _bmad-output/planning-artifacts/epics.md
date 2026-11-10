@@ -2,7 +2,7 @@
 status: draft
 stepsCompleted: [1,2,3]
 inputDocuments: [docs/product/prd.md, docs/architecture/architecture.md, docs/ux/ux-spec.md, docs/ux/screens/, _bmad-output/planning-artifacts/briefs/brief-wiro-2026-11-10/brief.md]
-note: generated in fast mode on Jean's 'go' — collaborative review (step 3D/4) still to do
+note: fast mode on Jean's "go" — ACs are checklists; convert to Given/When/Then per story in bmad-create-story; collaborative review still to do
 ---
 
 # Ubao — Epic Breakdown
@@ -64,9 +64,9 @@ So that agents add crates/apps in the right place.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** `cargo build` and `pnpm build` succeed on a fresh clone
-- **Given** the feature is implemented **When** tested **Then** each crate/app README states its responsibility
-- **Given** the feature is implemented **When** tested **Then** CI runs fmt, clippy, tests, typecheck on PR
+- [ ] `cargo build` and `pnpm build` succeed on a fresh clone
+- [ ] each crate/app README states its responsibility
+- [ ] CI runs fmt, clippy, tests, typecheck on PR
 
 ### Story 0.2: Licence & clean-room gate
 
@@ -76,8 +76,8 @@ So that no GPL/Commons-Clause/proprietary dep is merged.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** a PR adding a GPL crate fails CI with the offending crate named
-- **Given** the feature is implemented **When** tested **Then** the clean-room-guard agent report is attached to PRs
+- [ ] a PR adding a GPL crate fails CI with the offending crate named
+- [ ] the clean-room-guard agent report is attached to PRs
 
 ### Story 0.3: Design tokens pipeline
 
@@ -87,8 +87,8 @@ So that Penpot and code share one source of truth.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** changing a token and running the build updates CSS/TS/Rust outputs
-- **Given** the feature is implemented **When** tested **Then** light/dark themes switch via a data attribute
+- [ ] changing a token and running the build updates CSS/TS/Rust outputs
+- [ ] light/dark themes switch via a data attribute
 
 ### Story 0.4: Tauri 2 shells desktop + mobile
 
@@ -98,8 +98,8 @@ So that we validate packaging early.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** signed dev builds exist for the 4 targets
-- **Given** the feature is implemented **When** tested **Then** WASM engine loads inside each webview and reports GPU backend (WebGPU/WebGL2)
+- [ ] signed dev builds exist for the 4 targets
+- [ ] WASM engine loads inside each webview and reports GPU backend (WebGPU/WebGL2)
 
 ### Story 0.5: Loro + ProseMirror spike
 
@@ -109,9 +109,9 @@ So that we de-risk ADR-0003/0006.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** two editors converge after concurrent edits incl. offline
-- **Given** the feature is implemented **When** tested **Then** FR accents and Wolof/Yoruba diacritics typed via IME are preserved
-- **Given** the feature is implemented **When** tested **Then** spike report with go/no-go and fallback written as ADR addendum
+- [ ] two editors converge after concurrent edits incl. offline
+- [ ] FR accents and Wolof/Yoruba diacritics typed via IME are preserved
+- [ ] spike report with go/no-go and fallback written as ADR addendum
 
 ## EP1: Local-first workspace
 
@@ -125,8 +125,8 @@ So that my team's work is organised.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** created workspace persists after app restart offline
-- **Given** the feature is implemented **When** tested **Then** a space has a name, icon and members list (local until sync)
+- [ ] created workspace persists after app restart offline
+- [ ] a space has a name, icon and members list (local until sync)
 
 ### Story 1.2: Page tree & sidebar
 
@@ -136,9 +136,9 @@ So that I find my work fast.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** keyboard ↑↓←→ Enter F2 Del work
-- **Given** the feature is implemented **When** tested **Then** moving a subtree keeps children (Loro movable tree)
-- **Given** the feature is implemented **When** tested **Then** trash restores within retention
+- [ ] keyboard ↑↓←→ Enter F2 Del work
+- [ ] moving a subtree keeps children (Loro movable tree)
+- [ ] trash restores within retention
 
 ### Story 1.3: Crash-safe local storage
 
@@ -148,8 +148,8 @@ So that I never lose work.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** kill -9 during typing loses 0 committed ops on replay
-- **Given** the feature is implemented **When** tested **Then** restore test runs in CI on desktop and web (OPFS)
+- [ ] kill -9 during typing loses 0 committed ops on replay
+- [ ] restore test runs in CI on desktop and web (OPFS)
 
 ### Story 1.4: Sync status & offline UX
 
@@ -159,8 +159,8 @@ So that I trust the app without network.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** airplane mode: all editing works, badge shows offline
-- **Given** the feature is implemented **When** tested **Then** pending ops count visible; returns to synced after reconnect
+- [ ] airplane mode: all editing works, badge shows offline
+- [ ] pending ops count visible; returns to synced after reconnect
 
 ### Story 1.5: Command palette
 
@@ -170,8 +170,8 @@ So that I move fast.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** fuzzy results < 50 ms on 5k pages locally
-- **Given** the feature is implemented **When** tested **Then** offline shows local results with badge
+- [ ] fuzzy results < 50 ms on 5k pages locally
+- [ ] offline shows local results with badge
 
 ### Story 1.6: Home
 
@@ -181,8 +181,8 @@ So that I resume work instantly.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** loads from local store < 300 ms
-- **Given** the feature is implemented **When** tested **Then** offline greys pages not available offline
+- [ ] loads from local store < 300 ms
+- [ ] offline greys pages not available offline
 
 ## EP2: Canvas essentials
 
@@ -196,8 +196,8 @@ So that large boards stay usable.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** 60 fps at 10k objects on reference laptop (perf bench in CI)
-- **Given** the feature is implemented **When** tested **Then** wheel/trackpad/pinch/space-drag all work
+- [ ] 60 fps at 10k objects on reference laptop (perf bench in CI)
+- [ ] wheel/trackpad/pinch/space-drag all work
 
 ### Story 2.2: Stickies, text, shapes
 
@@ -207,8 +207,8 @@ So that I capture ideas.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** 8 canvas tints; text edit latency < 50 ms
-- **Given** the feature is implemented **When** tested **Then** double-click empty canvas creates text
+- [ ] 8 canvas tints; text edit latency < 50 ms
+- [ ] double-click empty canvas creates text
 
 ### Story 2.3: Selection & transform
 
@@ -218,8 +218,8 @@ So that I arrange content.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** snapping & smart guides
-- **Given** the feature is implemented **When** tested **Then** undo/redo across all transforms
+- [ ] snapping & smart guides
+- [ ] undo/redo across all transforms
 
 ### Story 2.4: Quick toolbar & inspector
 
@@ -229,8 +229,8 @@ So that I style without hunting menus.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** ≤ 7 controls; inspector reflects multi-selection
-- **Given** the feature is implemented **When** tested **Then** keyboard reachable
+- [ ] ≤ 7 controls; inspector reflects multi-selection
+- [ ] keyboard reachable
 
 ### Story 2.5: Accessible object list
 
@@ -240,8 +240,8 @@ So that the board is accessible.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** tab/arrow navigation announces object type and label
-- **Given** the feature is implemented **When** tested **Then** WCAG 2.2 AA checks pass on the panel
+- [ ] tab/arrow navigation announces object type and label
+- [ ] WCAG 2.2 AA checks pass on the panel
 
 ## EP3: Docs editor & doc↔board
 
@@ -255,8 +255,8 @@ So that I write specs fast.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** all FR2.1 blocks available
-- **Given** the feature is implemented **When** tested **Then** IME and copy/paste from Word/Google Docs keep structure
+- [ ] all FR2.1 blocks available
+- [ ] IME and copy/paste from Word/Google Docs keep structure
 
 ### Story 3.2: Doc ↔ Board toggle
 
@@ -266,8 +266,8 @@ So that I move between writing and drawing.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** blocks appear as cards on board and back without loss
-- **Given** the feature is implemented **When** tested **Then** undo spans both views
+- [ ] blocks appear as cards on board and back without loss
+- [ ] undo spans both views
 
 ### Story 3.3: Live canvas frame block
 
@@ -277,8 +277,8 @@ So that the diagram stays next to the text.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** edits in the doc frame appear on the board in real time
-- **Given** the feature is implemented **When** tested **Then** deleted frame shows restore placeholder
+- [ ] edits in the doc frame appear on the board in real time
+- [ ] deleted frame shows restore placeholder
 
 ### Story 3.4: Mentions, backlinks, properties
 
@@ -288,8 +288,8 @@ So that knowledge stays connected.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** backlinks update offline
-- **Given** the feature is implemented **When** tested **Then** property types shared with databases
+- [ ] backlinks update offline
+- [ ] property types shared with databases
 
 ### Story 3.5: Find & replace, outline, focus
 
@@ -299,8 +299,8 @@ So that long docs are manageable.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** replace all is a single undo step
-- **Given** the feature is implemented **When** tested **Then** outline follows H1–H3
+- [ ] replace all is a single undo step
+- [ ] outline follows H1–H3
 
 ## EP4: Real-time collaboration & sharing
 
@@ -314,8 +314,8 @@ So that edits reach everyone.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** 2+ clients converge; offline client merges on reconnect
-- **Given** the feature is implemented **When** tested **Then** server restart loses no acknowledged ops
+- [ ] 2+ clients converge; offline client merges on reconnect
+- [ ] server restart loses no acknowledged ops
 
 ### Story 4.2: Presence
 
@@ -325,8 +325,8 @@ So that I see who does what.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** follow user works
-- **Given** the feature is implemented **When** tested **Then** low-bandwidth mode throttles to 4 Hz
+- [ ] follow user works
+- [ ] low-bandwidth mode throttles to 4 Hz
 
 ### Story 4.3: Comments & inbox
 
@@ -336,8 +336,8 @@ So that feedback is tracked.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** mentions notify; resolve/reopen
-- **Given** the feature is implemented **When** tested **Then** comments work offline and sync
+- [ ] mentions notify; resolve/reopen
+- [ ] comments work offline and sync
 
 ### Story 4.4: Share & guest links
 
@@ -347,8 +347,8 @@ So that anyone can join a workshop.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** guest joins with name only, permissions enforced server-side
-- **Given** the feature is implemented **When** tested **Then** link expiry and password work; guests never billed
+- [ ] guest joins with name only, permissions enforced server-side
+- [ ] link expiry and password work; guests never billed
 
 ### Story 4.5: Version history
 
@@ -358,8 +358,8 @@ So that mistakes are reversible.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** restore page or single frame/block
-- **Given** the feature is implemented **When** tested **Then** diff highlight for docs
+- [ ] restore page or single frame/block
+- [ ] diff highlight for docs
 
 ## EP5: Canvas pro tools
 
@@ -373,8 +373,8 @@ So that flowcharts stay connected.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** connectors follow moved shapes
-- **Given** the feature is implemented **When** tested **Then** labels editable
+- [ ] connectors follow moved shapes
+- [ ] labels editable
 
 ### Story 5.2: Frames & presentation
 
@@ -384,8 +384,8 @@ So that I present from the board.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** slide order = frame order
-- **Given** the feature is implemented **When** tested **Then** follow mode for all participants
+- [ ] slide order = frame order
+- [ ] follow mode for all participants
 
 ### Story 5.3: Pen, images, tables
 
@@ -395,8 +395,8 @@ So that boards are expressive.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** images downscaled per low-bandwidth setting
-- **Given** the feature is implemented **When** tested **Then** pen pressure on stylus
+- [ ] images downscaled per low-bandwidth setting
+- [ ] pen pressure on stylus
 
 ### Story 5.4: Diagram kits & mind map
 
@@ -406,8 +406,8 @@ So that I diagram faster.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** kits drag from library; ports snap
-- **Given** the feature is implemented **When** tested **Then** mind map Tab/Enter, auto-layout, convert to outline
+- [ ] kits drag from library; ports snap
+- [ ] mind map Tab/Enter, auto-layout, convert to outline
 
 ## EP6: Workshops & facilitation
 
@@ -421,8 +421,8 @@ So that everyone sees the session state.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** participants count live
-- **Given** the feature is implemented **When** tested **Then** available on every tier
+- [ ] participants count live
+- [ ] available on every tier
 
 ### Story 6.2: Timer
 
@@ -432,8 +432,8 @@ So that we keep time.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** drift < 1 s across 30 clients on 3G
-- **Given** the feature is implemented **When** tested **Then** end toast for all
+- [ ] drift < 1 s across 30 clients on 3G
+- [ ] end toast for all
 
 ### Story 6.3: Voting
 
@@ -443,8 +443,8 @@ So that we prioritise.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** votes consistent after reconnect
-- **Given** the feature is implemented **When** tested **Then** results sortable into a new frame
+- [ ] votes consistent after reconnect
+- [ ] results sortable into a new frame
 
 ### Story 6.4: Private mode & reveal
 
@@ -454,7 +454,7 @@ So that ideas aren't biased.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** others see blurred cards until reveal
+- [ ] others see blurred cards until reveal
 
 ### Story 6.5: Follow, summon, raise hand, reactions
 
@@ -464,8 +464,8 @@ So that the group stays together.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** summon teleports all viewports
-- **Given** the feature is implemented **When** tested **Then** reactions throttled in low-bandwidth
+- [ ] summon teleports all viewports
+- [ ] reactions throttled in low-bandwidth
 
 ### Story 6.6: Workshop templates
 
@@ -475,7 +475,7 @@ So that I start in minutes.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** ≥ 9 templates incl. public-sector comité de pilotage
+- [ ] ≥ 9 templates incl. public-sector comité de pilotage
 
 ## EP7: Databases & planning
 
@@ -489,8 +489,8 @@ So that work is structured.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** 100k rows virtualised
-- **Given** the feature is implemented **When** tested **Then** property types FR5.1
+- [ ] 100k rows virtualised
+- [ ] property types FR5.1
 
 ### Story 7.2: Table & kanban views
 
@@ -500,8 +500,8 @@ So that we track work.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** drag between columns updates status
-- **Given** the feature is implemented **When** tested **Then** saved views per user/workspace
+- [ ] drag between columns updates status
+- [ ] saved views per user/workspace
 
 ### Story 7.3: Timeline & calendar
 
@@ -511,7 +511,7 @@ So that we see schedules.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** drag to reschedule; dependencies drawn
+- [ ] drag to reschedule; dependencies drawn
 
 ### Story 7.4: Meeting notes → actions
 
@@ -521,8 +521,8 @@ So that decisions are followed up.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** action line creates task with assignee/due
-- **Given** the feature is implemented **When** tested **Then** assignee sees it in Home
+- [ ] action line creates task with assignee/due
+- [ ] assignee sees it in Home
 
 ### Story 7.5: Roadmap board
 
@@ -532,7 +532,7 @@ So that roadmaps stay in sync.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** moving a card updates item dates
+- [ ] moving a card updates item dates
 
 ## EP8: Knowledge base & search
 
@@ -546,7 +546,7 @@ So that knowledge stays trustworthy.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** expiry triggers reminder to owner
+- [ ] expiry triggers reminder to owner
 
 ### Story 8.2: Global offline search
 
@@ -556,8 +556,8 @@ So that I find anything anywhere.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** sticky text matches jump to object
-- **Given** the feature is implemented **When** tested **Then** results < 200 ms on 10k pages locally
+- [ ] sticky text matches jump to object
+- [ ] results < 200 ms on 10k pages locally
 
 ### Story 8.3: Templates gallery
 
@@ -567,7 +567,7 @@ So that teams reuse best practices.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** admins publish templates to the workspace
+- [ ] admins publish templates to the workspace
 
 ## EP9: Identity, admin & security
 
@@ -581,8 +581,8 @@ So that I sign in securely.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** passkey registration and login
-- **Given** the feature is implemented **When** tested **Then** OTP fallback for slow email
+- [ ] passkey registration and login
+- [ ] OTP fallback for slow email
 
 ### Story 9.2: SSO & provisioning
 
@@ -592,8 +592,8 @@ So that access follows our IdP.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** test login in wizard
-- **Given** the feature is implemented **When** tested **Then** Keycloak & Azure AD validated
+- [ ] test login in wizard
+- [ ] Keycloak & Azure AD validated
 
 ### Story 9.3: Members, roles, guests policy
 
@@ -603,8 +603,8 @@ So that access is under control.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** billed column always visible
-- **Given** the feature is implemented **When** tested **Then** guest max role enforced
+- [ ] billed column always visible
+- [ ] guest max role enforced
 
 ### Story 9.4: Audit log
 
@@ -614,8 +614,8 @@ So that we pass audits.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** hash-chained entries verify
-- **Given** the feature is implemented **When** tested **Then** CSV/JSON export
+- [ ] hash-chained entries verify
+- [ ] CSV/JSON export
 
 ### Story 9.5: Fair billing page
 
@@ -625,9 +625,9 @@ So that billing is never a surprise.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** adding seats shows cost before confirm
-- **Given** the feature is implemented **When** tested **Then** guests/viewers never billed
-- **Given** the feature is implemented **When** tested **Then** invoice in XOF/KES
+- [ ] adding seats shows cost before confirm
+- [ ] guests/viewers never billed
+- [ ] invoice in XOF/KES
 
 ### Story 9.6: Encryption & CMK
 
@@ -637,7 +637,7 @@ So that data stays under our control.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** key rotation documented and tested
+- [ ] key rotation documented and tested
 
 ## EP10: Import/export & localisation
 
@@ -651,7 +651,7 @@ So that there is no lock-in.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** round-trip JSON export/import preserves page
+- [ ] round-trip JSON export/import preserves page
 
 ### Story 10.2: Import Notion, Markdown, Excalidraw
 
@@ -661,8 +661,8 @@ So that switching is painless.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** import report lists warnings
-- **Given** the feature is implemented **When** tested **Then** assets preserved
+- [ ] import report lists warnings
+- [ ] assets preserved
 
 ### Story 10.3: FR/EN Fluent i18n
 
@@ -672,8 +672,8 @@ So that I work in my language.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** all strings externalised; +30 % layouts pass
-- **Given** the feature is implemented **When** tested **Then** RTL layout toggle works in dev (ready for ar)
+- [ ] all strings externalised; +30 % layouts pass
+- [ ] RTL layout toggle works in dev (ready for ar)
 
 ## EP11: Sovereign server & operations
 
@@ -687,8 +687,8 @@ So that install takes < 15 min.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** fresh VPS install < 15 min doc-tested
-- **Given** the feature is implemented **When** tested **Then** Helm HA install on RKE2/K3s
+- [ ] fresh VPS install < 15 min doc-tested
+- [ ] Helm HA install on RKE2/K3s
 
 ### Story 11.2: Air-gapped bundle
 
@@ -698,8 +698,8 @@ So that we deploy without internet.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** install in isolated network passes smoke tests
-- **Given** the feature is implemented **When** tested **Then** signatures verified (Sigstore)
+- [ ] install in isolated network passes smoke tests
+- [ ] signatures verified (Sigstore)
 
 ### Story 11.3: Server admin console
 
@@ -709,8 +709,8 @@ So that we operate it confidently.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** point-in-time restore dry-run
-- **Given** the feature is implemented **When** tested **Then** telemetry off by default in sovereign
+- [ ] point-in-time restore dry-run
+- [ ] telemetry off by default in sovereign
 
 ### Story 11.4: White-label
 
@@ -720,7 +720,7 @@ So that we deliver under the client's identity.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** invalid contrast accent is rejected
+- [ ] invalid contrast accent is rejected
 
 ### Story 11.5: Security hardening & a11y audit
 
@@ -730,8 +730,8 @@ So that v1 is tender-ready.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** SBOM published per release
-- **Given** the feature is implemented **When** tested **Then** a11y audit report with zero blockers
+- [ ] SBOM published per release
+- [ ] a11y audit report with zero blockers
 
 ## EP12: Mobile apps (Tauri iOS/Android)
 
@@ -745,8 +745,8 @@ So that I work from my phone.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** works on 360 px low-end Android
-- **Given** the feature is implemented **When** tested **Then** offline per workspace
+- [ ] works on 360 px low-end Android
+- [ ] offline per workspace
 
 ### Story 12.2: Mobile board & workshop participant
 
@@ -756,7 +756,7 @@ So that I take part in workshops.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** 30-participant workshop includes mobile users smoothly
+- [ ] 30-participant workshop includes mobile users smoothly
 
 ### Story 12.3: Tablet canvas
 
@@ -766,7 +766,7 @@ So that tablets are first-class.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** pressure pen; finger pans
+- [ ] pressure pen; finger pans
 
 ### Story 12.4: Store releases
 
@@ -776,7 +776,7 @@ So that users install officially.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** TestFlight & Play internal track by S6; public at v1
+- [ ] TestFlight & Play internal track by S6; public at v1
 
 ## EP13: Landing & go-to-market
 
@@ -790,8 +790,8 @@ So that I get it in 10 seconds.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** Lighthouse perf ≥ 90 on 3G profile
-- **Given** the feature is implemented **When** tested **Then** no fake logos/testimonials
+- [ ] Lighthouse perf ≥ 90 on 3G profile
+- [ ] no fake logos/testimonials
 
 ### Story 13.2: Pricing with local currencies
 
@@ -801,7 +801,7 @@ So that price is clear in my currency.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** round local prices; 'who is billed' block
+- [ ] round local prices; 'who is billed' block
 
 ### Story 13.3: Sovereign & partners pages
 
@@ -811,6 +811,6 @@ So that I can start procurement.
 
 **Acceptance Criteria:**
 
-- **Given** the feature is implemented **When** tested **Then** tender pack PDF downloadable
+- [ ] tender pack PDF downloadable
 
 _Total: 14 epics, 65 stories._
