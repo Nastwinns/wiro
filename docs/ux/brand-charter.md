@@ -54,10 +54,12 @@ Gaps: **nobody owns deep green**, nobody plays *premium/restraint*, the only Afr
 | gold | #D9B65A | 9.9:1 |
 
 ### Semantic
-success = malachite family · warning #B26B00 / dark #F0A845 · danger #B42318 / dark #F97066 · info #1D5F8A / dark #6CB4E4. Never rely on colour alone (icon + label).
+success = **distinct yellower green** #3F7A1C / dark #86C66B (never the brand malachite — see color-analysis-africa.md) · warning #B26B00 / dark #F0A845 · danger #B42318 / dark #F97066 · info #1D5F8A / dark #6CB4E4. Never rely on colour alone (icon + label).
 
 ### Canvas content palette (stickies, shapes) — not brand colours
 8 soft mineral tints, ink text ≥ 12:1 on each: sand #F4E7B8 · ochre #F6D9A8 · clay #F2DCD3 · stone #E9E6DF · mint #DCEBDD · aqua #CFE8E4 · sky #D9E6F2 · lilac #E7DDF0. Dark-mode variants are 18 % luminance versions with text #F2F1EC.
+
+> Direction B **Indigo Adire** (#26306B + gold) is specified in `docs/ux/color-analysis-africa.md` for side-by-side comparison in Penpot.
 
 ## 4. Typography (all SIL OFL — compatible with MIT distribution)
 | Role | Family | Usage |
