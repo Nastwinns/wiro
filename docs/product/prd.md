@@ -1,6 +1,6 @@
 ---
 title: PRD — Wiro (working name)
-status: draft v0.1 (BMAD PM phase) — items tagged [ASSUMPTION] to validate
+status: draft v0.2 (decisions of 2026-11-10 integrated) (BMAD PM phase) — items tagged [ASSUMPTION] to validate
 created: 2026-11-10
 inputs: docs/research/competitive-audit.md, docs/product/market-offer-study.md, _bmad-output/planning-artifacts/briefs/brief-wiro-2026-11-10/
 ---
@@ -101,7 +101,7 @@ An open-source (MIT) workspace where African teams **write, draw, plan and decid
 - FR11.4 White-label: logo, colours, domain (partners/governments).
 
 ### E12 Localisation
-- FR12.1 UI FR + EN at launch, Fluent-based; community locales (wo, sw, ha, yo, ln, ar) with RTL support.
+- FR12.1 UI FR + EN at launch, Fluent-based; **Swahili first community locale** after v1, then wo, ha, yo, ln, ar (RTL support built in from v1).
 - FR12.2 Locale-aware dates, numbers, currencies (XOF, NGN, KES, …).
 
 ## 5. Non-functional requirements
@@ -123,6 +123,7 @@ An open-source (MIT) workspace where African teams **write, draw, plan and decid
 
 ## 6. Release definition — "MVP commercialisable" (first sellable release, ~3 months)
 Scope stays AFFiNE + Collaboard (not reduced). What gates the **first sale**:
+- **Native iOS/Android apps (Tauri mobile) in v1** (decided 2026-11-10).
 - UC1–UC4 excellent end-to-end (E1–E7 complete, E8 export + Markdown/Notion/Excalidraw import, E9 SSO + audit, E11 compose/Helm + admin console, E12 FR/EN).
 - Then continuous releases: E10 AI, Miro import, LAN sync, multi-tenant partner mode, mobile apps, mobile money billing.
 [ASSUMPTION: ordering to be validated in sprint planning]
@@ -134,4 +135,4 @@ Scope stays AFFiNE + Collaboard (not reduced). What gates the **first sale**:
 - Quality: crash-free sessions ≥ 99.5 %; zero data-loss incidents.
 
 ## 8. Open questions
-Name; final pricing grid per currency; partner programme terms; which CRDT (ADR-0003); which countries host Team Cloud first; trademark filings (OAPI/ARIPO).
+Name (candidate Ubao); pricing grid NGN/KES (XOF decided ~2 000/editor); partner programme terms;  which countries host Team Cloud first; trademark filings (OAPI/ARIPO).

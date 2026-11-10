@@ -73,7 +73,7 @@ Partner programme sketch [ASSUMPTION]: Registered → Certified → Premier; par
 |---|---|---|---|
 | **Community** | Everyone | Full app, unlimited boards & docs, self-host unlimited users, community support | Free (MIT) |
 | **Personal Cloud** | Individuals | Hosted sync, N GB | Free |
-| **Team Cloud** | S1 | Hosted in Africa (partner DC), unlimited guests/viewers free, facilitation, backups | ~€3/editor/mo ≈ **2 000 XOF**; team pack 10 editors **20 000 XOF/mo**; monthly or **quarterly**; local currency |
+| **Team Cloud** | S1 | Hosted in Africa — first DCs: Senegal (Orange Business/Sonatel), Côte d'Ivoire (Raxio), Kenya (IXAfrica/ADC), unlimited guests/viewers free, facilitation, backups | **decided: 2 000 XOF/editor/mo** (≈ €3); team pack 10 editors **20 000 XOF/mo**; monthly or **quarterly**; local currency |
 | **Business Cloud** | S1 growing | + SSO/OIDC, audit log, admin, priority support, data-residency country choice | ~€6/editor/mo ≈ **4 000 XOF** |
 | **Sovereign** | S2 | Annual subscription: certified LTS builds, air-gap bundle, Helm/HA, security advisories, SLA (business hours / 24×7), compliance & tender pack, named support | floor ~**€12k/yr** up to 250 users, then per-user band; multi-year; via partner or direct |
 | **Services** | S1/S2 | Deployment pack (fixed price), SSO/AD integration, migration from Miro/Notion/Excalidraw, training & facilitator certification, managed instance (MSP) | fixed packs + day rates |
