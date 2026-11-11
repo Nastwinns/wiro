@@ -79,9 +79,12 @@ An open-source (MIT) workspace where African teams **write, draw, plan and decid
 - FR7.5 Peer discovery on LAN (desktop) to sync without internet [ASSUMPTION — later phase].
 
 ### E8 Import / export & interoperability
-- FR8.1 Export page/workspace: Markdown + assets, open JSON format, PDF (real text), PNG/SVG for boards.
-- FR8.2 Import: Markdown, Notion export, Miro (CSV/backup where available), Excalidraw (.excalidraw), images/PDF to board.
+- FR8.1 Export page/workspace: Markdown + assets, open JSON format, PDF (real text), **Word (.docx), Excel (.xlsx) and CSV from databases, PowerPoint (.pptx) from frames**, PNG/SVG for boards. Delivered as mandatory plugins (FR8.4).
+- FR8.2 Import: Markdown, Notion export, Miro (CSV/backup where available), Excalidraw (.excalidraw), **Word (.docx), Excel/CSV (.xlsx to database), Figma (REST API export or SVG/PNG)**, images/PDF to board. Delivered as mandatory plugins (FR8.4).
 - FR8.3 Public API + webhooks; MCP server for AI agents [ASSUMPTION].
+- FR8.4 **Extension system** (ADR-0010): sandboxed plugins with declared permissions; first-party **mandatory plugins** (all importers and exporters above) are signed, bundled in every release including the air-gapped bundle, and work offline on local files.
+- FR8.5 **Certification & trust tiers**: Core, Verified, Community, Private; signed packages, SBOM and licence shown, revocation/kill switch; sovereign admins can allow-list or mirror the marketplace.
+- FR8.6 **Open contribution**: public SDKs (TypeScript for UI plugins, Rust/WASM components for server plugins, any language for MCP connectors), CLI and developer portal.
 
 ### E9 Identity, admin & security
 - FR9.1 Auth: email magic link, password + passkeys, OIDC/SAML SSO (Keycloak, Azure AD, Google), LDAP via IdP.

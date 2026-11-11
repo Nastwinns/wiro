@@ -45,3 +45,24 @@ Installed list with version, scope, permissions, last update, auto-update toggle
 Publisher profile, plugins, versions, review status, installs/ratings, revenue share (later — paid plugins are post-v1, decision ADR-0009).
 
 Acceptance: install in ≤ 3 clicks with explicit consent; uninstall removes data access instantly; sovereign admins can run with zero outbound marketplace traffic; a malicious plugin cannot read pages outside granted scope (sandbox tests).
+
+
+## Mandatory plugins (first-party, bundled in every release)
+Signed by the project, installed by default, work offline on local files, available in the air-gapped bundle, cannot be removed (can be hidden from menus by an admin). Everything else is optional.
+
+| Group | Plugin | Notes |
+|---|---|---|
+| Import | Notion (zip) · Miro (backup/CSV) · **Word (.docx)** · **Excel/CSV (.xlsx)** · **Figma (REST API export or SVG/PNG)** · Markdown folder · Excalidraw · PDF/images to board | Figma: no reverse-engineered .fig parsing (clean-room); Miro/Figma network access is declared and user-initiated |
+| Export | PDF (real text) · **Word (.docx)** · **Excel (.xlsx) and CSV** · **PowerPoint (.pptx)** · Markdown + assets · PNG/SVG · open JSON | docs to PDF/Word/Markdown, databases to Excel/CSV, frames to PowerPoint/PDF/PNG/SVG |
+
+## S-16.8 Import & migration hub
+Entry from onboarding (S-02.6), Settings, Ctrl K « Importer ». Source tiles grouped Documents (Word, Notion, Markdown) · Tableaux blancs (Miro, Figma, Excalidraw) · Données (Excel, CSV) · Fichiers (PDF, images). Each tile shows what is converted, known limits, offline-capable badge. Flow: choose source/file → mapping preview (pages, assets, warnings) → destination space → progress (resumable) → report (imported / warnings / skipped) with « Annuler l'import » (undoable batch). « Autres sources » opens the marketplace filtered to Import.
+
+## S-16.9 Export center
+From the page menu or S-09.5: scope (page, subtree, space, workspace) and format (PDF, Word, Excel, CSV, PowerPoint, Markdown, PNG/SVG, JSON) with a short fidelity note per format (e.g., « Les commentaires ne sont pas inclus dans Word »). Progress, offline-capable, result saved locally or shared link.
+
+## S-16.10 Trust, certification and contribution
+- **Trust tiers** shown as badges on cards and details: **Core** (project-maintained, in repo, bundled), **Verified** (publisher identity checked, reviewed, signed), **Community** (signed by publisher key, automated checks only, clearly labelled), **Private** (organisation-internal, allow-listed by admin).
+- **How certification works** (public page + in-app « En savoir plus »): publish → automated pipeline (manifest and permission lint, SBOM, licence allow-list OSI, dependency advisories, sandbox tests) → Sigstore signature bound to the publisher identity → human review for Verified (target 5 working days) → listed. Updates re-run the pipeline; permission increases require re-consent. Revocation and kill switch apply even offline once the revocation list is synced.
+- **Who can contribute**: anyone with a verified GitHub or organisation identity; Verified status needs a identity check and an OSI licence (or an explicit proprietary flag, filterable).
+- **Languages and SDK**: UI plugins, blocks and canvas widgets in **TypeScript/JavaScript** (`@ubao/plugin-sdk`, MIT, typed, with a UI kit using the design tokens); server plugins (importers, exporters, jobs, webhooks) as **WASM components (WASI 0.2)** — Rust is first-class (`ubao-plugin-sdk`, WIT), other languages via the component toolchain [maturity to verify per language]; connectors and AI tools via **MCP** in any language. `ubao-plugin` CLI: create, dev (load unpacked), validate, pack `.ubx`, sign, publish. Versioning: semver, 12-month API compatibility window (architecture §9).

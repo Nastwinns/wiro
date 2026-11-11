@@ -26,7 +26,7 @@ Decomposition of PRD v0.2 (E1–E12 FR groups), NFRs, architecture (ADR-0002/000
 | E5 Databases | EP7 |
 | E6 Collaboration | EP4 |
 | E7 Local-first | EP1, EP4 |
-| E8 Import/export | EP10 |
+| E8 Import/export | EP10, EP14 |
 | E9 Identity/admin | EP9 |
 | E10 AI | post-v1 (not in this breakdown) |
 | E11 Server/sovereign | EP4, EP11 |
@@ -51,6 +51,7 @@ Decomposition of PRD v0.2 (E1–E12 FR groups), NFRs, architecture (ADR-0002/000
 | EP11 | Sovereign server & operations | S8 |
 | EP12 | Mobile apps (Tauri iOS/Android) | S4b–S8 |
 | EP13 | Landing & go-to-market | S8 (content from W1) |
+| EP14 | Extensions, certification & migration (mandatory plugins) | S4-S8 |
 
 ## EP0: Foundations (enabler)
 
@@ -643,7 +644,7 @@ So that data stays under our control.
 
 Teams migrate in and out freely, in their language. *(sprint S7)*
 
-### Story 10.1: Export
+### Story 10.1: Export (superseded by Story 14.6 for formats; keep JSON open format here)
 
 As a user,
 I want export to Markdown, open JSON, real-text PDF, PNG/SVG (S-09.5),
@@ -653,7 +654,7 @@ So that there is no lock-in.
 
 - [ ] round-trip JSON export/import preserves page
 
-### Story 10.2: Import Notion, Markdown, Excalidraw
+### Story 10.2: Import Notion, Markdown, Excalidraw (delivered as mandatory plugins, see Story 14.5)
 
 As a founder,
 I want to import from Notion, Markdown and Excalidraw (S-02.6),
@@ -814,3 +815,108 @@ So that I can start procurement.
 - [ ] tender pack PDF downloadable
 
 _Total: 14 epics, 65 stories._
+
+
+## EP14: Extensions, certification & migration (mandatory plugins)
+
+Anyone can extend Ubao safely, and every customer can migrate in and out with the tools they already use. *(sprints S4-S8; ADR-0010, spec docs/ux/screens/16-plugins-marketplace.md)*
+
+Mandatory first-party plugins are **signed, bundled in every release (including the air-gapped bundle), work offline for local files, and need no marketplace access**.
+
+### Story 14.1: Plugin host, manifest & permissions
+
+As a maintainer,
+I want a sandboxed plugin host (iframe client, WASM component server) with a typed manifest and a permission broker,
+So that third-party code cannot read outside its granted scope.
+
+**Acceptance Criteria:**
+
+- [ ] manifest schema (JSON Schema) validated at install; undeclared permission = denied
+- [ ] iframe `sandbox="allow-scripts"`, strict CSP, no network unless allow-listed
+- [ ] a plugin cannot read pages outside its granted scope (sandbox tests)
+- [ ] crashing plugin is isolated; kill switch and audit events exist
+
+### Story 14.2: Plugin SDK & CLI
+
+As a plugin author,
+I want `@ubao/plugin-sdk` (TypeScript), `ubao-plugin-sdk` (Rust/WIT) and a `ubao-plugin` CLI (create, dev, validate, pack, sign, publish),
+So that I can build, test and ship a plugin in under an hour.
+
+**Acceptance Criteria:**
+
+- [ ] typed SDK generated from the same schema as the public API
+- [ ] local dev mode loads an unpacked plugin from localhost
+- [ ] mock host test harness and UI kit (tokens + components) published
+- [ ] SDK and examples are MIT; docs cover languages, permissions, versioning
+
+### Story 14.3: Marketplace, install consent & manage extensions
+
+As a workspace admin,
+I want to browse, install with explicit consent, and govern extensions (S-16.1 to S-16.5),
+So that sovereign policies (allow-list, mirror, pinned versions) are enforced.
+
+**Acceptance Criteria:**
+
+- [ ] install in <= 3 clicks with a plain-language permission list
+- [ ] policy: public marketplace / allow-list only / disabled; private registry URL
+- [ ] zero outbound marketplace traffic in sovereign mode
+
+### Story 14.4: Certification pipeline & signing
+
+As a security owner,
+I want a publish pipeline with automated checks, trust tiers and signed `.ubx` packages,
+So that users can tell core, verified, community and private extensions apart.
+
+**Acceptance Criteria:**
+
+- [ ] checks: manifest/permission lint, SBOM, licence allow-list, dependency audit, sandbox tests
+- [ ] Sigstore signature and publisher identity verified before install
+- [ ] revocation list honoured offline once synced; kill switch tested
+- [ ] tiers displayed: Core, Verified, Community, Private
+
+### Story 14.5: Mandatory import plugins
+
+As a founder or DSI migrating a team,
+I want importers for Notion, Miro, Word, Excel, Figma, Markdown and Excalidraw (plus CSV, PDF and images to board),
+So that moving to Ubao takes minutes, not weeks.
+
+**Acceptance Criteria:**
+
+- [ ] Notion (zip), Markdown folder, Excalidraw (.excalidraw), Word (.docx), Excel/CSV (.xlsx to database), PDF/images to board work offline on local files
+- [ ] Miro via backup/CSV where available; Figma via REST API export (network, user token) or exported SVG/PNG; limitations shown in the UI
+- [ ] mapping preview, destination space, resumable progress, report with warnings (S-02.6)
+- [ ] every importer parser has an OSI-compatible licence (cargo deny)
+
+### Story 14.6: Mandatory export plugins
+
+As a user,
+I want exports to PDF (real text), Word (.docx), Excel (.xlsx), PowerPoint (.pptx from frames), Markdown + assets, PNG/SVG, CSV and open JSON,
+So that there is no lock-in and I can share with people outside Ubao.
+
+**Acceptance Criteria:**
+
+- [ ] docs export to PDF/Word/Markdown; databases to Excel/CSV; frames to PowerPoint/PDF/PNG/SVG
+- [ ] export works offline; scope = page, subtree, space, workspace (S-09.5)
+- [ ] round-trip JSON preserves a page
+
+### Story 14.7: Mandatory plugin bundle & air-gapped mirror
+
+As a sovereign admin,
+I want the mandatory plugins and a signed marketplace mirror inside the offline bundle,
+So that an isolated installation can migrate and extend without internet.
+
+**Acceptance Criteria:**
+
+- [ ] bundle contains Core plugins, their SBOMs and signatures; verification works offline
+- [ ] private registry mirror documented and tested
+
+### Story 14.8: Developer portal & contribution guide
+
+As a contributor,
+I want a developer portal (S-16.6) and a CONTRIBUTING-PLUGINS guide,
+So that I know who can contribute, in which languages, and how certification works.
+
+**Acceptance Criteria:**
+
+- [ ] docs: languages, SDKs, manifest, permissions, packaging, publishing, trust tiers, review SLA
+- [ ] sample plugins in TypeScript and Rust
