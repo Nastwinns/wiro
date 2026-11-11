@@ -26,4 +26,4 @@ End: lands on Home with a seeded sample board "Bienvenue" (interactive tutorial 
 - Desktop app first run adds: "Où stocker vos données ?" (local folder, encryption on) + server connect or local-only.
 
 ## S-02.6 Import
-Sources tiles: Notion (zip), Markdown folder, Excalidraw, Miro (backup/CSV), Images/PDF → board. Steps: choose file → mapping preview (pages count, assets) → destination space → progress (resumable) → report (imported / warnings). Offline-capable for local files.
+Sources tiles (each is a mandatory import plugin, S-16.8): Notion (zip), Miro (backup/CSV), **Word (.docx)**, **Excel / CSV (.xlsx → base de données)**, **Figma (API ou SVG/PNG)**, Markdown folder, Excalidraw, Images/PDF → board; « Autres sources » opens the marketplace (Importers). Steps: choose file → mapping preview (pages count, assets) → destination space → progress (resumable) → report (imported / warnings). Offline-capable for local files.

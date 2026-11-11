@@ -338,3 +338,43 @@ stories:
     epic: EP13
     sprint: S8
     status: backlog
+  - id: "14.1"
+    title: "Plugin host, manifest & permissions"
+    epic: EP14
+    sprint: S4
+    status: backlog
+  - id: "14.2"
+    title: "Plugin SDK & CLI"
+    epic: EP14
+    sprint: S5
+    status: backlog
+  - id: "14.3"
+    title: "Marketplace, install consent & manage extensions"
+    epic: EP14
+    sprint: S8
+    status: backlog
+  - id: "14.4"
+    title: "Certification pipeline & signing"
+    epic: EP14
+    sprint: S8
+    status: backlog
+  - id: "14.5"
+    title: "Mandatory import plugins"
+    epic: EP14
+    sprint: S7
+    status: backlog
+  - id: "14.6"
+    title: "Mandatory export plugins"
+    epic: EP14
+    sprint: S7
+    status: backlog
+  - id: "14.7"
+    title: "Mandatory plugin bundle & air-gapped mirror"
+    epic: EP14
+    sprint: S8
+    status: backlog
+  - id: "14.8"
+    title: "Developer portal & contribution guide"
+    epic: EP14
+    sprint: S8
+    status: backlog

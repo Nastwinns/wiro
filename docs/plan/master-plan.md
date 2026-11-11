@@ -35,6 +35,9 @@ owner: Jean Balin (solo + AI agents, 20 h+/week)
 | **W13–14** (8–21 Feb) | — | S6: timeline/calendar, meeting notes, wiki, offline search | pricing page live (XOF/KES); Team Cloud infra in 1st DC |
 | **W15–16** (22 Feb–7 Mar) | — | S7: SSO/audit/admin, import/export, FR/EN; S8: server admin console, Helm, air-gap, a11y audit, store submission | **v1.0 target** (≈ 16 weeks real; "3 months" = 13 weeks → date risk flagged) |
 
+## 2bis. Extensions, certification & migration (EP14, added 2026-11-11)
+Mandatory first-party plugins ship with v1: importers (Notion, Miro, Word, Excel/CSV, Figma, Markdown, Excalidraw, PDF/images) and exporters (PDF, Word, Excel/CSV, PowerPoint, Markdown, PNG/SVG, JSON). Plugin host S4, SDK/CLI S5, importers/exporters S7, marketplace + certification + air-gapped mirror + developer portal S8. **Capacity risk:** EP14 adds ~8 stories to an already over-committed plan; the date moves before the scope does (see §0). Parsing libraries must pass the licence gate (docx/xlsx/pptx/PDF crates, MIT/Apache only).
+
 ## 3. Engineering sprint plan (2-week sprints) — updated with mobile
 S0 scaffold · S1 core/local-first · S2 canvas · S3 editor + sync · S4 canvas tools + collab (+ S4b mobile shells, touch input, store setup) · S5 workshops + DB · S6 planning + wiki + search · S7 identity/admin/import-export/i18n · S8 sovereign ops + hardening + stores + landing → v1.0.
 

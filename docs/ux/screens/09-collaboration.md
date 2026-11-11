@@ -17,4 +17,4 @@ Avatars in topbar (click = follow), coloured cursors with name labels on canvas,
 Right panel timeline grouped by day/session with authors; named versions; preview (read-only overlay); restore whole page or copy a block/frame; diff highlight for docs.
 
 ## S-09.5 Export / import dialog
-Export: scope (page, page + children, space, workspace), format (Markdown+assets, JSON open format, PDF, PNG/SVG for boards), options (include comments, history); progress; offline-capable.
+Export: scope (page, page + children, space, workspace), format (Markdown+assets, JSON open format, PDF, **Word .docx, Excel .xlsx / CSV (databases), PowerPoint .pptx (frames)**, PNG/SVG for boards; each is a mandatory export plugin, S-16.9), options (include comments, history); progress; offline-capable.
