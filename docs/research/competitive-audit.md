@@ -71,3 +71,27 @@ No product today combines **(1)** docs + canvas, **(2)** a fully MIT stack inclu
 - Notion: Notion engineering blog (offline), Notion help, XDA (Aug & Nov 2026), latenode community.
 - FigJam/Whimsical/Excalidraw/Boardmix: SelectHub, Mockflow, Rework, Boardmix blog, shouldiuse.io; tldraw licence: tldraw README, Quickdraw, meetrix.
 - Africa: ict.go.ke Kenya Cloud Policy guidelines (Jun 2026), NITDA National Guideline for Cloud Computing 2026, FMCIDE Nigeria cloud policy (Aug 2026), Chambers Kenya 2026, ITWeb Africa (Oct 2026), Spotflow, Ultraner, sh0 blog, Breedj, Today Africa.
+
+## Appendix — AFFiNE key figures (Exa, 11 Nov 2026)
+| Item | Value | Source / confidence |
+|---|---|---|
+| Company | TOEVERYTHING PTE. LTD., Singapore, founded 2020 (repo Jul 2022) | affine.pro/about |
+| Funding | $10M over 3 rounds incl. $8M Pre-A (Oct 2023; Redpoint China, Sinovation, CGC, MiraclePlus); data providers list up to $16M | PR Newswire 2023 (vendor) |
+| Team | ~13 employees on LinkedIn (−19 % YoY); ~261 GitHub contributors | LinkedIn data provider (estimate) |
+| Revenue | ~$1.3M/yr | data provider estimate, unverified |
+| Leadership | Founder JiaChen He left May 2026 (AI-agent product "Bridge"); Vincent Chen CEO | AFFiNE blog via dalao.ai |
+| GitHub | ~74k stars, ~5.4k forks, ~800 open issues/PRs; stable v0.27.4 (Aug 2026) | GitHub API |
+| Users | "200K+ Pro users", "7M+ downloads" (vendor claims); US App Store 36 ratings | vendor / App Store |
+| Pricing | Free local; Pro $6.75/mo; Team $10/seat/mo; AI add-on $8.9/mo; Believer $499.99 lifetime | pricing page, Oct 2026 |
+| Licence | Editor MIT; backend = Enterprise Edition licence (MPL-2.0 CE mentioned); Apache-2.0 move announced May 2026, not done by Oct 2026 | repo LICENSE, dalao.ai |
+| Self-host limits | 10 seats/workspace free; more seats need Team sub with **online licence check** or "Installable License" for intranet | pricing page |
+| Traffic | ~300–400k visits/month; top countries US, India, Bangladesh, S. Korea, Netherlands, China, Germany — **no African country in top 5** | Similarweb / Semrush Sep 2026 |
+
+### Blockers & pain points (2025–2026)
+- Silent sync failure → data loss, no UI warning (issue #14846, Apr 2026; maintainer blames Safari IndexedDB).
+- Android app "unusable": typed text deleted, keyboard covers content, self-hosted login broken (Play Store reviews 2025–2026; issue #15257 OTP/OIDC break in 0.27).
+- Self-host slow loading (~1 min, #14026); sync stuck at 89 % (#13272); memory leak → crash (#14006).
+- Licence ambiguity ("open source" but server not MIT) recurring on Reddit; online licence check incompatible with air-gapped government deployments.
+
+### Implication for Ubao
+AFFiNE validates demand for docs+canvas OSS but, after 4 years and ~$10M+, still ships v0.x with sync data-loss and weak mobile. Its gaps (server licence, seat caps, online licence check, mobile editing, sync reliability, no Africa focus/partners) are exactly Ubao's thesis — and also show how hard the engineering scope is.
