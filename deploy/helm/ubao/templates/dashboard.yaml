@@ -1,0 +1,12 @@
+{{- if .Values.grafanaDashboard.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "ubao.fullname" . }}-dashboard
+  labels:
+    {{- include "ubao.labels" . | nindent 4 }}
+    {{ .Values.grafanaDashboard.label }}: "1"
+data:
+  ubao.json: |-
+{{ .Files.Get "files/dashboard.json" | indent 4 }}
+{{- end }}

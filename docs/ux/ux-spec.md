@@ -78,8 +78,8 @@ Breakpoints: ≥1440 comfortable · 1366×768 **reference** (everything must fit
 ## 6. Responsive & devices
 - Desktop app (Tauri): native menus, tray sync indicator, file drop, offline by default.
 - Web: same UI; install as PWA; "offline available" per workspace opt-in.
-- Tablet: canvas-first, Apple Pencil/stylus pressure, sidebar as overlay.
-- Mobile: view + comment + stickies + quick notes + vote in workshops; full doc editing; board editing basic (stickies, text, move, connectors).
+- Tablet (responsive web): canvas-first, stylus via pointer events, sidebar as overlay.
+- Mobile (responsive web): view + comment + stickies + quick notes + vote in workshops; full doc editing; board editing basic (stickies, text, move, connectors).
 
 ## 7. Accessibility
 WCAG 2.2 AA. Canvas exposes an **object list** (layers panel = accessible tree) and live region announcing selection/moves. All colour-coded meaning duplicated with icon/label. Minimum text 13 px UI, 16 px docs. Reduced motion respected.
@@ -104,5 +104,5 @@ See `docs/ux/screens/` — each screen has an ID (`S-xx.y`), Penpot frame name, 
 | 10-settings-admin.md | S-10.1 account · .2 preferences · .3 offline & data · .4 members · .5 roles & guests · .6 SSO · .7 audit log · .8 billing · .9 branding |
 | 11-server-admin.md | S-11.1 server overview · .2 backups · .3 updates · .4 tenants · .5 subscription/licence · .6 integrations |
 | 12-system-states.md | S-12.x offline, sync, errors, empty, permissions, update, crash recovery |
-| 13-mobile-tablet.md | S-13.x mobile & tablet adaptations |
+| 13-mobile-tablet.md | S-13.x responsive web adaptations (phone 390 / tablet 768 in the browser; no native apps) |
 | 14-marketing-site.md | S-14.x landing, pricing, sovereign, download, partners, docs |

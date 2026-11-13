@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "ubao.fullname" . }}
+  labels: {{- include "ubao.labels" . | nindent 4 }}
+data:
+  PUBLIC_URL: {{ .Values.publicUrl | quote }}
+  STORAGE: {{ .Values.config.storage | quote }}
+  STORAGE_DISK_PATH: "/data/blobs"
+  S3_ENDPOINT: {{ .Values.config.s3.endpoint | quote }}
+  S3_REGION: {{ .Values.config.s3.region | quote }}
+  S3_BUCKET: {{ .Values.config.s3.bucket | quote }}
+  S3_FORCE_PATH_STYLE: {{ .Values.config.s3.forcePathStyle | quote }}
+  AUTH_MODE: {{ .Values.config.authMode | quote }}
+  OIDC_ISSUER_URL: {{ .Values.config.oidc.issuerUrl | quote }}
+  OIDC_CLIENT_ID: {{ .Values.config.oidc.clientId | quote }}
+  OIDC_SCOPES: {{ .Values.config.oidc.scopes | quote }}
+  SMTP_HOST: {{ .Values.config.smtp.host | quote }}
+  SMTP_PORT: {{ .Values.config.smtp.port | quote }}
+  SMTP_FROM: {{ .Values.config.smtp.from | quote }}
+  SMTP_TLS: {{ .Values.config.smtp.tls | quote }}
+  AI_ENABLED: {{ .Values.config.ai.enabled | quote }}
+  AI_ENDPOINT: {{ .Values.config.ai.endpoint | quote }}
+  AI_MODEL: {{ .Values.config.ai.model | quote }}
+  OTEL_ENABLED: {{ .Values.config.otel.enabled | quote }}
+  OTEL_EXPORTER_OTLP_ENDPOINT: {{ .Values.config.otel.endpoint | quote }}
+  LOW_BANDWIDTH_DEFAULT: {{ .Values.config.lowBandwidthDefault | quote }}
+  GUEST_ACCESS: {{ .Values.config.guestAccess | quote }}
+  RUST_LOG: {{ .Values.config.logLevel | quote }}

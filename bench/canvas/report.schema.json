@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "wiro-bench-report/1",
+  "title": "ADR-0004 canvas bench report (one file per machine x backend x scene x trace x run-set)",
+  "type": "object",
+  "required": ["format", "run", "machine", "backend", "scene", "trace", "runs", "median", "grades"],
+  "properties": {
+    "format": { "const": "wiro-bench-report/1" },
+    "run": { "type": "object", "required": ["id", "date", "gitSha", "buildProfile"], "properties": {
+      "id": {"type":"string"}, "date": {"type":"string"}, "gitSha": {"type":"string"}, "buildProfile": {"const": "release"},
+      "pluggedIn": {"type":"boolean"}, "warmupSeconds": {"type":"number"}, "operator": {"type":"string"} } },
+    "machine": { "type": "object", "required": ["id", "os", "webview", "gfxApiForced"], "properties": {
+      "id": {"enum": ["M1","M2","M3","M4","M5"]}, "model": {"type":"string"}, "ramGb": {"type":"number"}, "cpu": {"type":"string"},
+      "gpu": {"type":"string"}, "driver": {"type":"string"}, "os": {"type":"string"}, "webview": {"type":"string"},
+      "webgpuAvailable": {"type":"boolean"}, "webgl2Available": {"type":"boolean"}, "gfxApiForced": {"enum": ["auto","webgl2","webgpu","cpu"]},
+      "class": {"enum": ["desktop","mobile"]} } },
+    "backend": { "type": "object", "required": ["id", "name", "gfxApi"], "properties": {
+      "id": {"enum": ["B","C","D","E","null"]}, "name": {"type":"string"}, "gfxApi": {"type":"string"}, "adapter": {"type":"string"}, "version": {"type":"string"}, "wasmGzBytes": {"type":"number"} } },
+    "scene": { "type": "object", "required": ["variant", "layout", "seed", "checksum"], "properties": {
+      "variant": {"enum": ["1k","10k","25k"]}, "layout": {"enum": ["uniform","clustered"]}, "seed": {"const": 42}, "checksum": {"type":"string","pattern":"^[0-9a-f]{64}$"} } },
+    "trace": { "type": "object", "required": ["id", "checksum"], "properties": { "id": {"enum": ["pan","zoom","drag","typing","soak"]}, "checksum": {"type":"string"} } },
+    "runs": { "type": "array", "minItems": 1, "description": "Raw per-run metrics; ADR requires median of 5.", "items": { "$ref": "#/$defs/metrics" } },
+    "median": { "$ref": "#/$defs/metrics" },
+    "ssimVsReference": { "type": ["number","null"], "description": "vs vello_cpu (C) screenshots; >= 0.98 required" },
+    "grades": { "type": "object", "additionalProperties": {"enum": ["go","acceptable","no-go","n/a"]} },
+    "overall": {"enum": ["go","acceptable","no-go","n/a"]},
+    "notes": {"type":"string"}
+  },
+  "$defs": { "metrics": { "type": "object", "properties": {
+    "frameMs": { "type":"object", "properties": {"p50":{"type":"number"},"p95":{"type":"number"},"p99":{"type":"number"}} },
+    "fpsP50": {"type":"number"}, "fpsP95": {"type":"number"}, "droppedRatio": {"type":"number"},
+    "inputLatencyP95Ms": {"type":["number","null"]}, "firstFrameColdMs": {"type":["number","null"]}, "firstFrameWarmMs": {"type":["number","null"]},
+    "firstFrameSceneLoadMs": {"type":["number","null"]}, "rssPeakMb": {"type":["number","null"]}, "rssSteadyMb": {"type":["number","null"]},
+    "wasmLinearMemoryMb": {"type":["number","null"]}, "gpuMemoryMb": {"type":["number","null"]}, "soakGrowthPct": {"type":["number","null"]} } } }
+}

@@ -1,0 +1,141 @@
+# Ubao — Tier S (small installs). Licences: Caddy Apache-2.0, PostgreSQL (PostgreSQL licence),
+# MinIO AGPL-3.0 (run as a separate service, not linked; optional — use profile "disk" to avoid it).
+name: ubao
+
+x-ubao-env: &ubao-env
+  DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL}
+  STORAGE: ${STORAGE:-s3}
+  STORAGE_DISK_PATH: ${STORAGE_DISK_PATH:-/data/blobs}
+  S3_ENDPOINT: ${S3_ENDPOINT:-}
+  S3_REGION: ${S3_REGION:-us-east-1}
+  S3_BUCKET: ${S3_BUCKET:-ubao}
+  S3_ACCESS_KEY: ${S3_ACCESS_KEY:-}
+  S3_SECRET_KEY: ${S3_SECRET_KEY:-}
+  S3_FORCE_PATH_STYLE: ${S3_FORCE_PATH_STYLE:-true}
+  PUBLIC_URL: ${PUBLIC_URL:?set PUBLIC_URL}
+  AUTH_MODE: ${AUTH_MODE:-magic_link}
+  OIDC_ISSUER_URL: ${OIDC_ISSUER_URL:-}
+  OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-}
+  OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:-}
+  OIDC_SCOPES: ${OIDC_SCOPES:-openid profile email}
+  SMTP_HOST: ${SMTP_HOST:-}
+  SMTP_PORT: ${SMTP_PORT:-587}
+  SMTP_USER: ${SMTP_USER:-}
+  SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+  SMTP_FROM: ${SMTP_FROM:-}
+  SMTP_TLS: ${SMTP_TLS:-starttls}
+  TOKEN_SIGNING_KEY: ${TOKEN_SIGNING_KEY:?set TOKEN_SIGNING_KEY}
+  ENCRYPTION_KEY: ${ENCRYPTION_KEY:?set ENCRYPTION_KEY}
+  ENCRYPTION_KEYRING: ${ENCRYPTION_KEYRING:-env}
+  AI_ENABLED: ${AI_ENABLED:-false}
+  AI_ENDPOINT: ${AI_ENDPOINT:-}
+  AI_MODEL: ${AI_MODEL:-}
+  AI_API_KEY: ${AI_API_KEY:-}
+  OTEL_ENABLED: ${OTEL_ENABLED:-false}
+  OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-}
+  OTEL_SERVICE_NAME: ${OTEL_SERVICE_NAME:-ubao-server}
+  LOW_BANDWIDTH_DEFAULT: ${LOW_BANDWIDTH_DEFAULT:-false}
+  GUEST_ACCESS: ${GUEST_ACCESS:-false}
+  RUST_LOG: ${LOG_LEVEL:-info}
+
+services:
+  ubao:
+    image: ${UBAO_IMAGE:-ghcr.io/ubao/ubao-server}:${UBAO_VERSION:?set UBAO_VERSION}
+    restart: unless-stopped
+    environment: *ubao-env
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    volumes:
+      - blobs:/data/blobs
+      - index:/data/index
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [internal, edge]
+    healthcheck:
+      # distroless has no curl: the binary ships a healthcheck subcommand
+      test: ["CMD", "/usr/local/bin/ubao-server", "healthcheck"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ubao}
+      POSTGRES_DB: ${POSTGRES_DB:-ubao}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks: [internal]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ubao} -d ${POSTGRES_DB:-ubao}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports: ["80:80", "443:443", "443:443/udp"]
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:?set PUBLIC_HOST}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [ubao]
+    networks: [edge, public]
+
+  minio:
+    profiles: ["minio"]
+    image: minio/minio:latest   # pin a release tag or digest in production
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY:?set S3_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY:?set S3_SECRET_KEY}
+    volumes:
+      - miniodata:/data
+    networks: [internal]
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  minio-init:
+    profiles: ["minio"]
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "mc alias set local http://minio:9000 $$MINIO_USER $$MINIO_PASS &&
+      mc mb --ignore-existing local/${S3_BUCKET:-ubao} && mc version enable local/${S3_BUCKET:-ubao}"
+    environment:
+      MINIO_USER: ${S3_ACCESS_KEY:-}
+      MINIO_PASS: ${S3_SECRET_KEY:-}
+    networks: [internal]
+
+# Disk mode: set STORAGE=disk and start with no "minio" profile; blobs live in the `blobs` volume.
+# Compose profiles: `docker compose --profile minio up -d` (S3) or `docker compose up -d` (disk).
+
+volumes:
+  pgdata:
+  blobs:
+  index:
+  miniodata:
+  caddy_data:
+  caddy_config:
+
+networks:
+  internal:
+    internal: true
+  edge:
+  public:

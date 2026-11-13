@@ -8,7 +8,7 @@ created: 2026-11-10
 
 ## 1. Sources we follow (priority order)
 1. **WCAG 2.2 AA** — non-negotiable (gov procurement).
-2. **Vercel Web Interface Guidelines** — interaction details: keyboard everywhere, visible `:focus-visible`, hit targets ≥ 24 px (44 mobile), input ≥ 16 px on mobile, never block paste/zoom, optimistic updates + undo, loading show-delay 150–300 ms & min 300–500 ms, URL as state / deep-link everything, gestures have click/keyboard alternatives, aria-live for async, locale-aware shortcuts, ellipsis for "Rename…" / "Saving…".
+2. **Vercel Web Interface Guidelines** — interaction details: keyboard everywhere, visible `:focus-visible`, hit targets ≥ 32 px desktop (Ubao raises the 24 px baseline; 44 touch), input ≥ 16 px on mobile, never block paste/zoom, optimistic updates + undo, loading show-delay 150–300 ms & min 300–500 ms, URL as state / deep-link everything, gestures have click/keyboard alternatives, aria-live for async, locale-aware shortcuts, ellipsis for "Rename…" / "Saving…".
 3. **Apple HIG design principles** — purpose, agency, responsibility, familiarity, flexibility, simplicity, craft, delight; preserve context across devices; multiple input methods.
 4. **Material 3 (usability)** — one primary task per view, emphasise key actions, use empty space.
 5. **Laws of UX / NN/g heuristics** — Fitts (edge-anchored toolbars, big frequent actions), Hick (8 default tools), Jakob (familiar shortcuts V/H/T/R…), Miller/recognition over recall (command palette, recent), Doherty (< 400 ms feedback; our target < 50 ms on canvas), Tesler (complexity moved to defaults, not users).
@@ -38,3 +38,10 @@ Identical rounded card grids with grey shadows · purple/blue gradients · glass
 | Interface Playbook / UI Craft (smoothui) | reading list | link only |
 
 Rule (from 2026 comparisons): per task, **one skill that designs + one that reviews** — e.g. Penpot screens: design-guide/ux-designer → impeccable review; landing: frontend-design → web-design-guidelines review.
+
+## 5. Règles de cohérence (Ubao)
+- Logo officiel Ubao (Escalier) : `design/exports/logo/ubao/final`, jamais retapé ; remplace « Fil-cadre ».
+- Contours de champs : `border.control` ≥ 3:1. Or : ornement et édition Souverain seulement.
+- Copy : pas de tiret cadratin ; mots d'interface en français (Tableau, pas Board).
+- Fraunces : une fois par écran en app ; exception marketing à trancher.
+- Cibles ≥ 32 px (44 tactile) ; vérifier `node tools/contrast-check/check.mjs` après tout changement de jeton.

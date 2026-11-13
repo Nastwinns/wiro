@@ -1,0 +1,153 @@
+{
+  "format": "wiro-bench-report/1",
+  "run": {
+    "id": "null-1794402610861",
+    "date": "2026-11-11T13:10:10.861Z",
+    "gitSha": "unknown",
+    "buildProfile": "release"
+  },
+  "machine": {
+    "id": "M5",
+    "os": "darwin",
+    "webview": "node",
+    "gfxApiForced": "auto",
+    "class": "desktop"
+  },
+  "backend": {
+    "id": "null",
+    "name": "null",
+    "gfxApi": "none"
+  },
+  "scene": {
+    "variant": "1k",
+    "layout": "clustered",
+    "seed": 42,
+    "checksum": "9e44752937130a6454202433e9cb0b0641997e70a6502aeb02b2b2d548982048"
+  },
+  "trace": {
+    "id": "pan",
+    "checksum": "5e0767e9299dfc92e42d1b702192169501facae28b00c526929efc5df5902aca"
+  },
+  "runs": [
+    {
+      "frames": 601,
+      "frameMs": {
+        "p50": 16.67,
+        "p95": 16.67,
+        "p99": 16.67
+      },
+      "fpsP50": 59.98800239952009,
+      "fpsP95": 59.98800239952009,
+      "droppedRatio": 0,
+      "inputLatencyP95Ms": null,
+      "firstFrameColdMs": 0.023167000000000826,
+      "firstFrameSceneLoadMs": 0,
+      "rssPeakMb": 51,
+      "wasmLinearMemoryMb": null,
+      "gpuMemoryMb": null,
+      "wallMs": 0.29145799999999866
+    },
+    {
+      "frames": 601,
+      "frameMs": {
+        "p50": 16.67,
+        "p95": 16.67,
+        "p99": 16.67
+      },
+      "fpsP50": 59.98800239952009,
+      "fpsP95": 59.98800239952009,
+      "droppedRatio": 0,
+      "inputLatencyP95Ms": null,
+      "firstFrameColdMs": 0.0033749999999983515,
+      "firstFrameSceneLoadMs": 0,
+      "rssPeakMb": 51,
+      "wasmLinearMemoryMb": null,
+      "gpuMemoryMb": null,
+      "wallMs": 0.44675000000000153
+    },
+    {
+      "frames": 601,
+      "frameMs": {
+        "p50": 16.67,
+        "p95": 16.67,
+        "p99": 16.67
+      },
+      "fpsP50": 59.98800239952009,
+      "fpsP95": 59.98800239952009,
+      "droppedRatio": 0,
+      "inputLatencyP95Ms": null,
+      "firstFrameColdMs": 0.009208000000000993,
+      "firstFrameSceneLoadMs": 0,
+      "rssPeakMb": 51,
+      "wasmLinearMemoryMb": null,
+      "gpuMemoryMb": null,
+      "wallMs": 0.1126249999999942
+    },
+    {
+      "frames": 601,
+      "frameMs": {
+        "p50": 16.67,
+        "p95": 16.67,
+        "p99": 16.67
+      },
+      "fpsP50": 59.98800239952009,
+      "fpsP95": 59.98800239952009,
+      "droppedRatio": 0,
+      "inputLatencyP95Ms": null,
+      "firstFrameColdMs": 0.001041999999998211,
+      "firstFrameSceneLoadMs": 0,
+      "rssPeakMb": 51,
+      "wasmLinearMemoryMb": null,
+      "gpuMemoryMb": null,
+      "wallMs": 0.1339579999999998
+    },
+    {
+      "frames": 601,
+      "frameMs": {
+        "p50": 16.67,
+        "p95": 16.67,
+        "p99": 16.67
+      },
+      "fpsP50": 59.98800239952009,
+      "fpsP95": 59.98800239952009,
+      "droppedRatio": 0,
+      "inputLatencyP95Ms": null,
+      "firstFrameColdMs": 0.0045000000000001705,
+      "firstFrameSceneLoadMs": 0,
+      "rssPeakMb": 51,
+      "wasmLinearMemoryMb": null,
+      "gpuMemoryMb": null,
+      "wallMs": 0.13600000000000279
+    }
+  ],
+  "median": {
+    "frameMs": {
+      "p50": 16.67,
+      "p95": 16.67,
+      "p99": 16.67
+    },
+    "fpsP50": 59.98800239952009,
+    "fpsP95": 59.98800239952009,
+    "droppedRatio": 0,
+    "inputLatencyP95Ms": null,
+    "firstFrameColdMs": 0.0045000000000001705,
+    "firstFrameWarmMs": null,
+    "firstFrameSceneLoadMs": 0,
+    "rssPeakMb": 51,
+    "rssSteadyMb": null,
+    "wasmLinearMemoryMb": null,
+    "gpuMemoryMb": null,
+    "soakGrowthPct": null
+  },
+  "ssimVsReference": null,
+  "grades": {
+    "fpsP50": "go",
+    "fpsP95": "go",
+    "inputLatencyP95Ms": "n/a",
+    "firstFrameMs": "go",
+    "rssMb": "go",
+    "wasmGzKb": "n/a",
+    "soakGrowthPct": "n/a"
+  },
+  "overall": "go"
+}

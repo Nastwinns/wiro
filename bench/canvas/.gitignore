@@ -1,0 +1,7 @@
+traces/
+scenes/*
+!scenes/example-*.json
+!scenes/CHECKSUMS.json
+reports/*
+!reports/selftest-null.json
+!reports/.gitkeep

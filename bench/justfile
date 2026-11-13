@@ -1,0 +1,28 @@
+# Spike benches. Requires Node >= 22 (zero npm dependencies). Run from repo root: just -f bench/justfile <recipe>
+set shell := ["bash", "-cu"]
+
+default:
+    @just --list
+
+test:
+    cd canvas && npm test
+    cd search && npm test
+    cd editor && npm test
+
+# ADR-0004: regenerate scenes + traces (gitignored except the 1k example) and verify checksums
+bench-canvas-prep:
+    cd canvas && for v in 1k 10k 25k; do for l in clustered uniform; do node src/cli.mjs gen --variant $v --layout $l; done; done
+    cd canvas && node src/cli.mjs traces
+
+# Pipeline self-test (null backend). Real backends: see docs/architecture/spikes/spike-0.4b-canvas-bench.md
+bench-canvas-selftest:
+    cd canvas && node src/cli.mjs run --backend null && node src/cli.mjs validate reports/selftest-null.json
+
+bench-canvas-validate +files:
+    cd canvas && node src/cli.mjs validate {{files}}
+
+bench-search-corpus pages="5000" words="1000":
+    cd search && node src/gen-corpus.mjs --pages {{pages}} --words {{words}} --out corpus-full
+
+bench-search-run:
+    cd search && node src/run-reference.mjs

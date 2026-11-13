@@ -1,0 +1,43 @@
+{
+ "brand": "Ubao",
+ "tagline": "Le workspace où les idées s'assemblent",
+ "brief": "Workspace collaboratif open source, docs + canvas infini, souverain, pour l'Afrique. Doit paraître fiable, calme et solide.",
+ "adjectives": [
+  "solide",
+  "calme",
+  "souverain",
+  "collaboratif"
+ ],
+ "criteria": "Reconnaissable à 16 px, monochrome, distinct des marques collaboratives bleues/violettes.",
+ "industry": "software / collaboration",
+ "nav": [
+  "Docs",
+  "Canvas",
+  "Self-hosted"
+ ],
+ "brand_color": "#0B5D49",
+ "greyscale": false,
+ "designer": "Wiro",
+ "round": 2,
+ "concepts": [
+  {
+   "name": "Joint",
+   "symbol": "ubao-symbol-color.svg",
+   "lockup": "ubao-lockup-horizontal-color.svg",
+   "symbol_on_tile": "ubao-symbol-white.svg",
+   "lockup_on_dark": "ubao-lockup-horizontal-dark.svg",
+   "idea": "Deux planches s'assemblent par un joint en escalier : docs et canvas, ensemble.",
+   "rationale": [
+    "Grille 8/16, rayon unique 24, jeu de 20 unités",
+    "Coupe 16 px dédiée à joint simplifié",
+    "Logotype géométrique construit en paths"
+   ]
+  }
+ ],
+ "recommendation": "Joint + logotype W1 géométrique calme.",
+ "next_steps": [
+  "Intégration Penpot",
+  "Tokens couleur",
+  "Validation marque"
+ ]
+}

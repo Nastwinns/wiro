@@ -1,0 +1,124 @@
+# Default values for the Ubao chart. All sizing figures are [ASSUMPTION] until load tests exist.
+
+image:
+  repository: ghcr.io/ubao/ubao-server
+  tag: ""            # defaults to .Chart.AppVersion (placeholder until first release)
+  digest: ""         # set for pinned/air-gapped installs: sha256:...
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+
+replicaCount: 2      # sync is sticky per connection; see ingress.stickySessions
+
+publicUrl: https://ubao.example.org
+
+# Non-secret settings, rendered into the ConfigMap
+config:
+  storage: s3              # s3 | disk (disk requires a ReadWriteMany PVC; not recommended for HA)
+  s3:
+    endpoint: ""
+    region: us-east-1
+    bucket: ubao
+    forcePathStyle: true
+  authMode: magic_link     # magic_link | password | oidc
+  oidc:
+    issuerUrl: ""
+    clientId: ""
+    scopes: "openid profile email"
+  smtp:
+    host: ""
+    port: 587
+    from: ubao@example.org
+    tls: starttls
+  ai:
+    enabled: false
+    endpoint: ""
+    model: ""
+  otel:
+    enabled: false
+    endpoint: ""
+  lowBandwidthDefault: false
+  guestAccess: false
+  logLevel: info
+
+# Secret holding DATABASE_URL (unless cnpg.enabled), S3_ACCESS_KEY, S3_SECRET_KEY, TOKEN_SIGNING_KEY,
+# ENCRYPTION_KEY, SMTP_PASSWORD, OIDC_CLIENT_SECRET, AI_API_KEY.
+# The chart never creates it: use External Secrets / Sealed Secrets / `kubectl create secret`.
+existingSecret: ubao-secrets
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  className: ""
+  host: ubao.example.org
+  tls:
+    enabled: true
+    secretName: ubao-tls
+  annotations: {}
+  stickySessions: true   # adds nginx cookie-affinity annotations when className is nginx
+
+resources:
+  requests: { cpu: 250m, memory: 512Mi }
+  limits: { memory: 1Gi }
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 65532
+  fsGroup: 65532
+  seccompProfile: { type: RuntimeDefault }
+containerSecurityContext:
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  capabilities: { drop: [ALL] }
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+topologySpread: true
+
+pdb:
+  enabled: true
+  minAvailable: 1
+
+networkPolicy:
+  enabled: true
+  ingressNamespaceSelector:     # namespace of the ingress controller
+    kubernetes.io/metadata.name: ingress-nginx
+  egress:
+    postgresCIDR: ""            # leave empty to allow only in-namespace/CNPG
+    s3CIDR: ""
+    allowDNS: true
+    extra: []                   # extra raw egress rules (SMTP, IdP, OTLP)
+
+# CloudNativePG (Apache-2.0) cluster; requires the operator installed separately.
+cnpg:
+  enabled: false
+  instances: 3
+  storage: { size: 20Gi, storageClass: "" }
+  imageName: ""                 # pin for air-gapped installs
+  backup:
+    enabled: false
+    destinationPath: ""         # s3://bucket/path
+    secretName: ""              # S3 creds secret with ACCESS_KEY_ID / ACCESS_SECRET_KEY
+    retentionPolicy: 30d
+
+# Prometheus Operator CRDs required for the two options below
+serviceMonitor:
+  enabled: false
+  interval: 30s
+prometheusRule:
+  enabled: false
+grafanaDashboard:
+  enabled: false               # ConfigMap labelled for the Grafana sidecar
+  label: grafana_dashboard
+
+probes:
+  path: /healthz

@@ -18,3 +18,4 @@ See docs/architecture/project-structure.md and docs/research/competitive-audit.m
 - HA via standard Postgres tooling (CloudNativePG operator in Helm chart).
 - Air-gapped bundle includes Postgres image.
 - Desktop client local store remains SQLite (client-side, not server) — unaffected.
+- Note (AR2, 2026-11-11): MinIO is AGPL-3.0; it may be used as a separate, customer-installed service but must not be the store we ship by default under AGENTS.md rule 2. Prefer SeaweedFS (Apache-2.0) or the disk adapter in the bundles; maintainer to confirm (decisions-needed.md D-5).

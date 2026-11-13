@@ -26,7 +26,7 @@ Gaps: **nobody owns deep green**, nobody plays *premium/restraint*, the only Afr
 
 ## 3. Colour
 
-**Malachite** — the green mineral of the Congolese copper belt (Katanga), used in jewellery and ornament: African, precious, deep, calm. **Gold** used like gold leaf: rare, small, premium tier and achievements only.
+**Malachite** — the green mineral of the Congolese copper belt (Katanga), used in jewellery and ornament: African, precious, deep, calm. **Gold** used like gold leaf: ornament and the Sovereign edition only, never an action or a state.
 
 ### Light theme
 | Token | Hex | Use | Contrast |
@@ -36,7 +36,9 @@ Gaps: **nobody owns deep green**, nobody plays *premium/restraint*, the only Afr
 | ink | #0F1211 | primary text | 18.0:1 on paper |
 | ink-2 | #3D4441 | secondary text | 9.6:1 |
 | muted | #6B726F | tertiary text, placeholders | 4.7:1 (AA) |
-| line | #E4E5E0 | borders, dividers | decorative |
+| line | #E4E5E0 | dividers, cards | decorative only |
+| border.control | #7C837F | field, checkbox, radio, segment outlines | 3.9:1 on surface (≥ 3:1) |
+| text.warning | #8A5300 | warning text | 6.3:1 on surface, 5.6:1 on warning bg |
 | malachite | #0B5D49 | primary actions, focus, links | 7.5:1; white on it 7.9:1 |
 | malachite-600 | #0E7458 | hover / secondary emphasis | 5.5:1 |
 | gold | #B08A2E | ornaments, premium badges (non-text only) | 3.1:1 (graphics ≥ 3:1) |
@@ -65,7 +67,7 @@ success = **distinct yellower green** #3F7A1C / dark #86C66B (never the brand ma
 | Role | Family | Usage |
 |---|---|---|
 | UI & docs | **Inter** (v4, variable, `font-feature-settings: "cv11","ss01","tnum"` for data) | everything in-app |
-| Display (marketing, empty-state titles, cover pages) | **Fraunces** (opsz high, SOFT 0, WONK 0), weights 300–500 | sparingly: 1 per screen max |
+| Display (cover pages, empty-state titles) | **Fraunces** (opsz high, SOFT 0, WONK 0), weights 300–500 | in-app: 1 per screen max. Marketing headings: exception pending maintainer decision |
 | Code / data | **JetBrains Mono** | code blocks, IDs |
 | Fallbacks | **Noto Sans** (+ Noto Sans Arabic, Noto Sans Ethiopic) | RTL & non-Latin scripts |
 
@@ -86,10 +88,11 @@ Lucide (ISC), 1.5 px stroke, 16/20 px grid, rounded joins. Custom glyphs for can
 A single-weight geometric line pattern derived from **strip-weaving grids** (kente-style rhythm, abstracted) and **bogolan mark-making** (abstracted to dots/lines) — never literal reproduction of a specific cultural design. Used only: marketing backgrounds at 4–6 % opacity, empty states, loading splash, sovereign-tier certificate. Never inside working surfaces.
 Cultural note: commission or validate the motif with an African designer; credit inspiration.
 
-## 8. Logo direction (to be designed in Penpot)
+## 8. Logo (officiel : Ubao, symbole « Escalier »)
+Le logo officiel est dans `design/exports/logo/ubao/final` ; il remplace la piste « Fil-cadre ». Ne jamais le redessiner ; wordmark en SVG. Pistes historiques ci-dessous, conservées pour mémoire :
 - Wordmark in Inter Display-style custom lettering, lowercase, tight, with one ligature/detail.
 - Symbol: a square board whose stroke turns into a **thread** that closes the frame (board + people joined). Must work at 16 px (favicon, tray icon) and in one colour.
-- Lock-ups: symbol + wordmark horizontal; symbol alone for app icon (malachite on paper / paper on malachite). Gold version reserved for "Sovereign" edition.
+- Lock-ups: symbol + wordmark horizontal; symbol alone for app icon (malachite on paper / paper on malachite). Gold version reserved for "Sovereign" edition (ornament only, never a state).
 
 ## 9. Motion
 Purposeful and quiet: 120 ms (micro), 200 ms (panels), 320 ms (page/doc↔canvas morph); easing `cubic-bezier(.2,.0,0,1)` (out) and `(.4,0,.2,1)` (standard). No bounce. `prefers-reduced-motion` → fades only. Canvas pan/zoom is never animated beyond inertia.
@@ -98,4 +101,8 @@ Purposeful and quiet: 120 ms (micro), 200 ms (panels), 320 ms (page/doc↔canvas
 Calm, precise, respectful, never hype. "Vous" in French UI. Short sentences, verbs first on buttons ("Créer le tableau", "Inviter"). Errors say what happened + what to do. No fake urgency, no guilt copy in billing. Local idioms only in marketing, never in system messages.
 
 ## 11. Accessibility baseline
-WCAG 2.2 AA everywhere; focus ring 2 px malachite + 2 px offset; hit targets ≥ 32 px desktop / 44 px touch; full keyboard on canvas (tab through objects, arrows move, Enter edits).
+WCAG 2.2 AA everywhere; focus ring 2 px malachite + 2 px offset; hit targets ≥ 32 px desktop / 44 px touch; field borders use `border.control` (≥ 3:1); no em dashes in copy; UI words in French (Tableau, not Board); full keyboard on canvas (tab through objects, arrows move, Enter edits).
+
+
+## 12. Jetons ajoutés (2026-11)
+Source unique : `design/tokens/tokens.json` (subtle/strong, états, présence 8 teintes, guide, stylo, confettis, notes canvas sombres). Contrastes : `design/tokens/CONTRAST-REPORT.md`.

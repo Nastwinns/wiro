@@ -12,11 +12,11 @@ created: 2026-11-10
 | S1 | Core: wiro-model, wiro-crdt, wiro-storage (WAL), Tauri shell, chrome skeleton, tokens package | offline doc CRUD, crash test green |
 | S2 | Canvas engine v1 (render, hit-test, select, stickies, shapes, text, pan/zoom) + perf bench in CI | 10k objects @60 fps on ref laptop |
 | S3 | Docs editor + doc↔board + live frame block; sync server v1 (WS, rooms) | 2 users real-time + offline merge |
-| S4 | Connectors, frames, pen, images, layers, inspector; comments; share + guest links; **S4b Tauri mobile shells (iOS/Android), touch input** | UC2 demo end-to-end + mobile internal builds |
+| S4 | Connectors, frames, pen, images, layers, inspector; comments; share + guest links; **S4b responsive web (touch input, phone/tablet browsers)** | UC2 demo end-to-end + mobile internal builds |
 | S5 | Workshop mode (timer, vote, private, follow), templates; databases (table, kanban) | UC1 demo with 30 users |
 | S6 | Timeline/calendar, meeting notes, wiki (backlinks, verified), search offline | UC3 + UC4 demos |
 | S7 | Auth (OIDC/SAML), admin, audit, export/import (MD, Notion, Excalidraw), FR/EN | admin & sovereign checklist |
-| S8 | Server admin console, Helm, air-gapped bundle, backups, hardening, a11y audit, landing site, **App Store / Play submission** | **Release 1.0 (first sellable)** |
+| S8 | Server admin console, Helm, air-gapped bundle, backups, hardening, a11y audit, landing site, **desktop installers signing** | **Release 1.0 (first sellable)** |
 
 Continuous after 1.0: AI (BYO model), Swahili locale, Miro import, LAN sync, multi-tenant partner mode, mobile money billing, community locales.
 
