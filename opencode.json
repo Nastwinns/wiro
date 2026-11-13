@@ -16,7 +16,7 @@
     "penpot-cloud": {
       "type": "remote",
       "url": "{env:PENPOT_MCP_URL}",
-      "enabled": false
+      "enabled": true
     }
   }
 }

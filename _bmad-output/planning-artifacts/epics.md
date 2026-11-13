@@ -13,7 +13,7 @@ Decomposition of PRD v0.2 (E1–E12 FR groups), NFRs, architecture (ADR-0002/000
 ## Requirements Inventory
 - Functional: PRD §4 FR1.x–FR12.x.
 - Non-functional: PRD §5 (P1–P4, R1–R2, O1, B1, S1, A1, I1, L1, D1).
-- Additional: clean-room & licence gate (AGENTS.md); MIT for all code.
+- Additional: clean-room & licence gate (AGENTS.md); MIT OR Apache-2.0 for all code (ADR-0016).
 - UX: docs/ux/ux-spec.md + screens; tokens DTCG; WCAG 2.2 AA.
 
 ### FR Coverage Map
@@ -100,7 +100,7 @@ So that we validate packaging early.
 **Acceptance Criteria:**
 
 - [ ] signed dev builds exist for the 2 desktop targets
-- [ ] WASM engine loads inside each webview and reports GPU backend (WebGPU/WebGL2)
+- [ ] WASM engine loads inside each webview and in the browser, and reports GPU backend (WebGPU/WebGL2)
 
 ### Story 0.5: Loro + ProseMirror spike
 
@@ -740,7 +740,7 @@ No native iOS/Android apps (ADR-0015, 2026-11-11); phones/tablets use the respon
 
 ### Story 12.1: Responsive navigation & docs
 
-As a mobile user,
+As a mobile-browser user,
 I want bottom bar, page tree and full doc editing (S-13.1–13.3),
 So that I work from my phone.
 
@@ -752,24 +752,24 @@ So that I work from my phone.
 ### Story 12.2: Responsive board & workshop participant
 
 As a guest on phone (P5),
-I want to add stickies, vote and follow on mobile (S-13.4/13.5),
+I want to add stickies, vote and follow in a mobile browser (S-13.4/13.5),
 So that I take part in workshops.
 
 **Acceptance Criteria:**
 
-- [ ] 30-participant workshop includes mobile users smoothly
+- [ ] 30-participant workshop includes mobile-browser users smoothly
 
 ### Story 12.3: Tablet canvas
 
 As a designer,
-I want a touch/stylus canvas via pointer events (S-13.7, S-13.8),
+I want a touch/stylus canvas (pointer events, palm rejection where the browser exposes it) (S-13.7, S-13.8),
 So that tablets are first-class.
 
 **Acceptance Criteria:**
 
 - [ ] pressure pen; finger pans
 
-### Story 12.4: ~~Store releases~~ — removed (ADR-0015)
+### Story 12.4: ~~Store releases~~ — removed (no native mobile apps, decision 2026-11-11)
 
 ## EP13: Landing & go-to-market
 
@@ -839,7 +839,7 @@ So that I can build, test and ship a plugin in under an hour.
 - [ ] typed SDK generated from the same schema as the public API
 - [ ] local dev mode loads an unpacked plugin from localhost
 - [ ] mock host test harness and UI kit (tokens + components) published
-- [ ] SDK and examples are MIT; docs cover languages, permissions, versioning
+- [ ] SDK and examples are MIT OR Apache-2.0; docs cover languages, permissions, versioning
 
 ### Story 14.3: Marketplace, install consent & manage extensions
 

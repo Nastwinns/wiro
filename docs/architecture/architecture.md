@@ -10,7 +10,7 @@ changes_v0_3: added §17 Deployment, §18 Extensions and plugins, §19 AI and MC
 
 ## 1. Context (C4 level 1)
 ```
- Users (desktop app · browser · mobile web)          Admins / Partners
+ Users (desktop app · browser incl. responsive phone/tablet web)          Admins / Partners
           │  local-first edits, sync when online            │
           ▼                                                 ▼
  ┌─────────────────────┐   WebSocket (delta ops)   ┌────────────────────────┐

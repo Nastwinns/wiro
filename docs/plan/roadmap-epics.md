@@ -16,7 +16,7 @@ created: 2026-11-10
 | S5 | Workshop mode (timer, vote, private, follow), templates; databases (table, kanban) | UC1 demo with 30 users |
 | S6 | Timeline/calendar, meeting notes, wiki (backlinks, verified), search offline | UC3 + UC4 demos |
 | S7 | Auth (OIDC/SAML), admin, audit, export/import (MD, Notion, Excalidraw), FR/EN | admin & sovereign checklist |
-| S8 | Server admin console, Helm, air-gapped bundle, backups, hardening, a11y audit, landing site, **App Store / Play submission** | **Release 1.0 (first sellable)** |
+| S8 | Server admin console, Helm, air-gapped bundle, backups, hardening, a11y audit, landing site, **desktop installers signing** | **Release 1.0 (first sellable)** |
 
 Continuous after 1.0: AI (BYO model), Swahili locale, Miro import, LAN sync, multi-tenant partner mode, mobile money billing, community locales.
 

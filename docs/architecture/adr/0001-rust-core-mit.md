@@ -1,6 +1,6 @@
 # ADR-0001 — Cœur en Rust, licence MIT
 
-> **Amendé le 2026-11-11 par [ADR-0016](0016-dual-licence-mit-apache.md)** : licence **MIT OR Apache-2.0** (double licence au choix).
+> **Amendé le 2026-11-11 par [ADR-0016](0016-dual-licence-mit-apache.md)** : la licence est désormais **MIT OR Apache-2.0** (double licence au choix). Le reste de l'ADR (cœur Rust, clean-room) est inchangé.
 
 - Statut : accepté
 - Date : 2026-11-10

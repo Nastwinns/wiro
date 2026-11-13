@@ -1,6 +1,6 @@
 # Wiro
 
-> Open-source Notion-style docs + Miro-style canvas, Rust, MIT, self-hosted.
+> Open-source Notion-style docs + Miro-style canvas, Rust, MIT OR Apache-2.0, self-hosted.
 
 - [AGENTS.md](AGENTS.md): rules for AI agents
 - [docs/](docs/): product, research, UX, architecture, plan

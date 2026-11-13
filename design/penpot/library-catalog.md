@@ -1,0 +1,284 @@
+# Penpot library catalog (generated from file `wiro`, 2026-11-11)
+
+## Typographies (use `text(..., {typo:"name"})`)
+- md semibold Inter Tight 14/600
+- body Inter Tight 16/400
+- sm strong Inter Tight 13/500
+- xs strong Inter Tight 12/500
+- title Inter Tight 32/600
+- H1 Inter Tight 30/600
+- sm Inter Tight 13/400
+- H3 Inter Tight 20/600
+- md Inter Tight 14/400
+- 30 Fraunces 30/400
+- 36 Fraunces 36/400
+- 48 Fraunces 48/300
+- xs Inter Tight 12/400
+- md strong Inter Tight 14/500
+- sm JetBrains Mono 13/400
+- H2 Inter Tight 24/600
+- 64 Fraunces 64/300
+
+## Colours (use `hex("light / bg/app")`; light / dark / canvas / presence sets)
+- canvas / dark/aqua=#253D3A
+- canvas / dark/clay=#4A3530
+- canvas / dark/lilac=#3A3045
+- canvas / dark/mint=#2C3B2E
+- canvas / dark/ochre=#4D3B22
+- canvas / dark/sand=#4A4228
+- canvas / dark/sky=#283645
+- canvas / dark/stone=#3A3833
+- canvas / light/aqua=#CFE8E4
+- canvas / light/clay=#F2DCD3
+- canvas / light/lilac=#E7DDF0
+- canvas / light/mint=#DCEBDD
+- canvas / light/ochre=#F6D9A8
+- canvas / light/sand=#F4E7B8
+- canvas / light/sky=#D9E6F2
+- canvas / light/stone=#E9E6DF
+- dark / accent/default=#3FBF95
+- dark / accent/hover=#5ACFA8
+- dark / accent/ornament=#D9B65A
+- dark / accent/subtle=#15302A
+- dark / bg/app=#0D0F0E
+- dark / bg/canvas=#0D0F0E
+- dark / bg/inverse=#F2F1EC
+- dark / bg/subtle=#1D2220
+- dark / bg/surface=#161A18
+- dark / border/default=#2A302D
+- dark / border/focus=#3FBF95
+- dark / border/strong=#3A413E
+- dark / overlay/scrim=#000000
+- dark / status/danger-subtle=#321B19
+- dark / status/danger=#F97066
+- dark / status/info-subtle=#16252F
+- dark / status/info=#6CB4E4
+- dark / status/success-subtle=#1E2B18
+- dark / status/success=#86C66B
+- dark / status/warning-subtle=#2E2414
+- dark / status/warning=#F0A845
+- dark / text/gold=#D9B65A
+- dark / text/muted=#8A908C
+- dark / text/on-accent=#0D0F0E
+- dark / text/primary=#F2F1EC
+- dark / text/secondary=#B9BDB8
+- light / accent/default=#0B5D49
+- light / accent/hover=#0E7458
+- light / accent/ornament=#B08A2E
+- light / accent/subtle=#E3EFEA
+- light / bg/app=#FAFAF7
+- light / bg/canvas=#FFFFFF
+- light / bg/inverse=#0F1211
+- light / bg/subtle=#F1F2EE
+- light / bg/surface=#FFFFFF
+- light / border/default=#E4E5E0
+- light / border/focus=#0B5D49
+- light / border/strong=#C9CBC4
+- light / overlay/scrim=#0F1211
+- light / status/danger-subtle=#FBE9E7
+- light / status/danger=#B42318
+- light / status/info-subtle=#E4EEF5
+- light / status/info=#1D5F8A
+- light / status/success-subtle=#EAF3E3
+- light / status/success=#3F7A1C
+- light / status/warning-subtle=#FBF0DF
+- light / status/warning=#B26B00
+- light / text/gold=#7A5E1A
+- light / text/muted=#6B726F
+- light / text/on-accent=#FFFFFF
+- light / text/primary=#0F1211
+- light / text/secondary=#3D4441
+- presence/p1=#1D5F8A
+- presence/p2=#B26B00
+- presence/p3=#7A4FA0
+- presence/p4=#0E7458
+- presence/p5=#A0522D
+- presence/p6=#2F6F8F
+
+## Components (use `inst(parent,"name",x,y)`)
+- Avatar/24
+- Avatar/32
+- Avatar/group
+- Badge/accent
+- Badge/danger
+- Badge/gold
+- Badge/info
+- Badge/neutral
+- Badge/success
+- Badge/warning
+- Board/CanvasControls
+- Board/CollabBar
+- Board/CustomizeToolbar
+- Board/search
+- Breadcrumb/default
+- Button / danger / md/default
+- Button / danger / md/disabled
+- Button / danger / md/focus
+- Button / danger / md/hover
+- Button / ghost / md/default
+- Button / ghost / md/disabled
+- Button / ghost / md/focus
+- Button / ghost / md/hover
+- Button / primary / lg/default
+- Button / primary / md/default
+- Button / primary / md/default
+- Button / primary / md/disabled
+- Button / primary / md/focus
+- Button / primary / md/hover
+- Button / primary / sm/default
+- Button / primary / touch/default
+- Button / secondary / md/default
+- Button / secondary / md/disabled
+- Button / secondary / md/focus
+- Button / secondary / md/hover
+- Card/code
+- Card/file
+- Card/link
+- Card/live-doc
+- Card/table
+- Card/task
+- Checkbox/off
+- Checkbox/on
+- Combobox/open
+- CommandPalette/no-result
+- CommandPalette/offline
+- CommandPalette/results
+- Comment/default
+- CommentPin/avatar
+- CommentPin/count
+- ContextMenu/object
+- Cursor/p1
+- Cursor/p2
+- Cursor/p3
+- CursorChat
+- Dialog/confirm
+- EmptyState/space
+- FacilitatorLock/badge
+- Follow/banner
+- Frame/titled
+- HideCursors/toggle
+- IconButton/active
+- IconButton/close
+- IconButton/default
+- IconButton/hover
+- IconButton/menu
+- Ink/highlighter
+- Ink/palette
+- Ink/pen
+- Input/default
+- Input/disabled
+- Input/error
+- Input/focus
+- KanbanCard/default
+- Kbd/default
+- Media/audio
+- Media/image
+- Media/image-lowdata
+- Media/pdf
+- Media/video
+- Menu/page
+- Menu/zoom
+- Minimap/default
+- OTP/partial
+- Outline/agenda
+- Panel/frames
+- Panel/layers
+- PerfHUD
+- Popover/board-settings
+- Popover/sync
+- Progress/62
+- QuickToolbar/sticky
+- Radio/off
+- Radio/on
+- RaiseHand/queue
+- Segmented/Doc-Board
+- Select/default
+- Selection/box
+- Shape/arrow
+- Shape/bubble
+- Shape/cloud
+- Shape/cross
+- Shape/cylinder
+- Shape/cylinder
+- Shape/diamond
+- Shape/diamond
+- Shape/document
+- Shape/ellipse
+- Shape/ellipse
+- Shape/hexagon
+- Shape/parallelogram
+- Shape/pentagon
+- Shape/rect
+- Shape/rect
+- Shape/star
+- Shape/trapezoid
+- Shape/triangle
+- ShareDialog
+- Sheet/create
+- SidePeek
+- Skeleton/doc
+- SlashMenu
+- Stamp/+1
+- Stamp/Bravo
+- Stamp/Favori
+- Stamp/Question
+- Stamp/Validé
+- Stamp/À revoir
+- StampWheel
+- Sticky / dark/aqua
+- Sticky / dark/clay
+- Sticky / dark/lilac
+- Sticky / dark/mint
+- Sticky / dark/ochre
+- Sticky / dark/sand
+- Sticky / dark/sky
+- Sticky / dark/stone
+- Sticky / light/aqua
+- Sticky / light/clay
+- Sticky / light/lilac
+- Sticky / light/mint
+- Sticky / light/ochre
+- Sticky / light/sand
+- Sticky / light/sky
+- Sticky / light/stone
+- Sticky/rectangle
+- Sticky/round
+- Sticky/size-L
+- Sticky/size-M
+- Sticky/size-S
+- Sticky/stack
+- Sticky/tags
+- Summon/toast
+- Switch/off
+- Switch/on
+- Table/rows
+- Tabs/default
+- Text/free
+- Text/heading
+- Textarea/default
+- Timer/paused
+- Timer/running
+- Toast/error
+- Toast/info
+- Toast/success
+- Toast/warning
+- Tool/active
+- Tool/default
+- Tool/flyout
+- Tool/hover
+- Tool/locked
+- Toolbar/horizontal
+- Toolbar/mobile
+- Toolbar/vertical
+- Tooltip/default
+- Tooltip/tool
+- TreeRow/active
+- TreeRow/default
+- TreeRow/hover
+- TreeRow/offline
+- Vote/results
+- Vote/setup
+- VoteDot/3
+- WorkshopBar/facilitator
+- WorkshopBar/participant
+- Zoom/cluster

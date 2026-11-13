@@ -63,4 +63,4 @@ Three tiers, designed in [ADR-0011](docs/architecture/adr/0011-deployment-operat
 Contributions, plugins, translations (Swahili first!) and feedback are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
-Dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option ([ADR-0016](docs/architecture/adr/0016-dual-licence-mit-apache.md)); the Ubao name and logos are not covered ([NOTICE](NOTICE)) (current; may evolve per [LICENSING.md](LICENSING.md), decision pending) · Third-party notices: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+Dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option ([ADR-0016](docs/architecture/adr/0016-dual-licence-mit-apache.md)). The Ubao name and logos are not covered by the licences ([NOTICE](NOTICE)) · Third-party notices: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)

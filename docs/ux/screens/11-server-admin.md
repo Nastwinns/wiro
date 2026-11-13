@@ -15,7 +15,7 @@ Channel (stable/LTS), changelog, security advisories (CVE list for Sovereign sub
 Organisations list, quotas (users, storage), branding per tenant, impersonate-for-support with audit, suspend.
 
 ## S-11.5 Subscription
-Edition, subscription ID, support level, SLA, renewal date, offline activation file (air-gapped), contact partner. No feature lock in Community (MIT) — only support/LTS status.
+Edition, subscription ID, support level, SLA, renewal date, offline activation file (air-gapped), contact partner. No feature lock in Community (MIT OR Apache-2.0) — only support/LTS status.
 
 ## S-11.6 Integrations & config
 SMTP, SSO global, AI endpoint (BYO model: URL, model, test), telemetry (off by default in sovereign), storage, rate limits, logs export (syslog/OTel), webhooks.

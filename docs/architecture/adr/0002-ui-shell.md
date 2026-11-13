@@ -7,7 +7,7 @@
 See docs/architecture/project-structure.md and docs/research/competitive-audit.md (perf P1, data-loss P2, offline P3).
 
 ## Options
-1. Tauri 2 + web UI (React/shadcn or Leptos) — mature, mobile path, webview perf ceiling
+1. Tauri 2 + web UI (React/shadcn or Leptos) — mature, webview perf ceiling (desktop only; mobile is responsive web)
 2. GPUI (Zed) — native GPU, top perf, Windows/web less mature
 3. Dioxus (webview now, Blitz native later) — Rust end to end, younger
 
