@@ -11,7 +11,7 @@ Customers range from a 5-person startup on a $5 VPS to a ministry with an air-ga
 |---|---|---|
 | Ubao server (stateless binary / OCI image) | yes | embeds sync relay, API, auth, search index (tantivy), admin API; several replicas behind sticky WebSocket routing |
 | PostgreSQL ≥ 15 | yes | metadata, permissions, audit, CRDT snapshots/updates |
-| Blob storage | yes | S3-compatible (MinIO, Ceph, SeaweedFS, cloud S3) **or** local-disk adapter for small installs |
+| Blob storage | yes | S3-compatible (SeaweedFS, Ceph, cloud S3; MinIO is AGPL-3.0, see decisions-needed.md D-5) **or** local-disk adapter for small installs |
 | TLS reverse proxy | yes in production | Caddy (compose) / Ingress (Helm) |
 | SMTP | recommended | required for magic-link sign-in |
 | IdP (OIDC/SAML) | optional (expected for public sector) | |

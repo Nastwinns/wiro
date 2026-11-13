@@ -1,0 +1,12 @@
+.git
+target
+node_modules
+**/node_modules
+_bmad
+_bmad-output
+docs
+design
+.env
+.env.*
+*.md
+deploy

@@ -77,7 +77,7 @@ Options to compare with counsel: Senegal (SAS/SARL, OHADA, access to UEMOA publi
 3. Swahili native-speaker check on "Ubao" (+ GitHub org `ubaohq` / domain check).
 4. Create GitHub org **`ubaohq`**; README/ROADMAP/CONTRIBUTING/THIRD_PARTY_NOTICES ready; secrets scan clean; **resolve vendored-skills licences (see THIRD_PARTY_NOTICES TODO)** before the first public push.
 5. Run `bmad-check-implementation-readiness`, then `bmad-create-epics-and-stories`.
-6. Write ADR-0004 (renderer) after S0 spike; ADR-0008 (mobile shell); ADR-0009 (entity).
+6. Write ADR-0004 (renderer) after S0 spike; ADR-0015 (responsive web; supersedes 0008); ADR-0009 (entity).
 7. List 10 pilot targets (5 startups, 3 administrations, 2 integrators).
 8. First X + LinkedIn posts (announcement, why sovereign open-source docs+canvas for Africa).
 9. Email Orange Business SN / Raxio CI / IXAfrica-ADC KE for hosting partnership.

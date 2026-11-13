@@ -1,0 +1,9 @@
+{
+ "generator": "bench/search/src/gen-corpus.mjs",
+ "seed": 42,
+ "pages": 200,
+ "wordsPerPage": 300,
+ "totalWords": 60000,
+ "queries": 595,
+ "pagesSha256": "060562effe11e7b76683fe5eb99d211a168d802170e4ef23fdc97582956f245d"
+}

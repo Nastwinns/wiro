@@ -1,0 +1,10 @@
+{
+  "title": "Ubao server (skeleton)",
+  "schemaVersion": 39,
+  "panels": [
+    {"type": "stat", "title": "Replicas up", "gridPos": {"x":0,"y":0,"w":6,"h":4},
+     "targets": [{"expr": "sum(up{job=~\".*ubao.*\"})"}]},
+    {"type": "timeseries", "title": "Sync apply p95 (ASSUMPTION metric)", "gridPos": {"x":6,"y":0,"w":18,"h":8},
+     "targets": [{"expr": "histogram_quantile(0.95, sum(rate(ubao_sync_apply_seconds_bucket[5m])) by (le))"}]}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@ubao/contrast-check",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Vérifie les ratios WCAG des paires déclarées dans design/tokens/tokens.json",
+  "scripts": { "check": "node check.mjs ../../design/tokens/tokens.json --out ../../design/tokens/CONTRAST-REPORT.md" }
+}

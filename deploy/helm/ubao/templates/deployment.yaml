@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ubao.fullname" . }}
+  labels: {{- include "ubao.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxUnavailable: 0, maxSurge: 1 }
+  selector:
+    matchLabels: {{- include "ubao.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "ubao.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      serviceAccountName: {{ include "ubao.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 60
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.topologySpread }}
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels: {{- include "ubao.selectorLabels" . | nindent 14 }}
+      {{- end }}
+      containers:
+        - name: ubao
+          image: {{ include "ubao.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: ["serve"]
+          ports:
+            - { name: http, containerPort: 8080 }
+          envFrom:
+            - configMapRef: { name: {{ include "ubao.fullname" . }} }
+          env:
+            {{- if .Values.cnpg.enabled }}
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef: { name: {{ include "ubao.fullname" . }}-db-app, key: uri }
+            {{- else }}
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef: { name: {{ .Values.existingSecret }}, key: DATABASE_URL }
+            {{- end }}
+            {{- range $k := list "S3_ACCESS_KEY" "S3_SECRET_KEY" "TOKEN_SIGNING_KEY" "ENCRYPTION_KEY" "SMTP_PASSWORD" "OIDC_CLIENT_SECRET" "AI_API_KEY" }}
+            - name: {{ $k }}
+              valueFrom:
+                secretKeyRef: { name: {{ $.Values.existingSecret }}, key: {{ $k }}, optional: true }
+            {{- end }}
+          readinessProbe:
+            httpGet: { path: {{ .Values.probes.path }}, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: {{ .Values.probes.path }}, port: http }
+            initialDelaySeconds: 20
+            periodSeconds: 15
+          startupProbe:
+            httpGet: { path: {{ .Values.probes.path }}, port: http }
+            failureThreshold: 30
+            periodSeconds: 2
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          securityContext: {{- toYaml .Values.containerSecurityContext | nindent 12 }}
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+            - { name: index, mountPath: /data/index }
+      volumes:
+        - { name: tmp, emptyDir: {} }
+        - { name: index, emptyDir: {} }
+      {{- with .Values.nodeSelector }}
+      nodeSelector: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations: {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -1,0 +1,12 @@
+Ubao {{ .Chart.AppVersion }} installed as "{{ .Release.Name }}".
+
+URL: {{ .Values.publicUrl }}
+{{- if .Values.ingress.enabled }} (Ingress host: {{ .Values.ingress.host }}){{ end }}
+
+Checklist:
+  1. Secret "{{ .Values.existingSecret }}" must exist with: TOKEN_SIGNING_KEY, ENCRYPTION_KEY, S3_ACCESS_KEY, S3_SECRET_KEY{{ if not .Values.cnpg.enabled }}, DATABASE_URL{{ end }} (+ SMTP_PASSWORD / OIDC_CLIENT_SECRET if used).
+  2. Pods:    kubectl get pods -l app.kubernetes.io/instance={{ .Release.Name }}
+  3. First admin: kubectl exec deploy/{{ include "ubao.fullname" . }} -- /usr/local/bin/ubao-server init   (planned CLI)
+{{- if not .Values.cnpg.enabled }}
+  NOTE: cnpg.enabled=false — PostgreSQL >= 15 must be provided by you via DATABASE_URL.
+{{- end }}

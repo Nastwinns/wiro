@@ -1,0 +1,2 @@
+{ "name": "@wiro/bench-editor", "private": true, "version": "0.0.0", "license": "MIT", "type": "module",
+  "scripts": { "test": "node --test src/*.test.mjs" } }

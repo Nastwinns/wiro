@@ -1,0 +1,27 @@
+{{- if .Values.prometheusRule.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ include "ubao.fullname" . }}
+  labels: {{- include "ubao.labels" . | nindent 4 }}
+spec:
+  groups:
+    - name: ubao
+      rules:
+        - alert: UbaoDown
+          expr: up{job="{{ include "ubao.fullname" . }}"} == 0
+          for: 2m
+          labels: { severity: critical }
+          annotations: { summary: "Ubao server instance down" }
+        - alert: UbaoNotEnoughReplicas
+          expr: kube_deployment_status_replicas_available{deployment="{{ include "ubao.fullname" . }}"} < {{ .Values.pdb.minAvailable }}
+          for: 5m
+          labels: { severity: warning }
+          annotations: { summary: "Fewer Ubao replicas available than the PDB minimum" }
+        # [ASSUMPTION] metric names below follow the planned server metrics; adjust once implemented
+        - alert: UbaoSyncLagHigh
+          expr: histogram_quantile(0.95, sum(rate(ubao_sync_apply_seconds_bucket[5m])) by (le)) > 1
+          for: 10m
+          labels: { severity: warning }
+          annotations: { summary: "Sync apply p95 above 1s" }
+{{- end }}

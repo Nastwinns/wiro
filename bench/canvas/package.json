@@ -1,0 +1,15 @@
+{
+  "name": "@wiro/bench-canvas",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "ADR-0004 canvas bench: seeded scene generator, replayable input traces, harness skeleton. Zero dependencies (Node >= 22).",
+  "scripts": {
+    "test": "node --test src/*.test.mjs src/harness/*.test.mjs",
+    "gen": "node src/cli.mjs gen",
+    "traces": "node src/cli.mjs traces",
+    "run": "node src/cli.mjs run",
+    "validate": "node src/cli.mjs validate"
+  }
+}

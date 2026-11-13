@@ -1,0 +1,30 @@
+{{- if .Values.cnpg.enabled }}
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ include "ubao.fullname" . }}-db
+  labels: {{- include "ubao.labels" . | nindent 4 }}
+spec:
+  instances: {{ .Values.cnpg.instances }}
+  {{- with .Values.cnpg.imageName }}
+  imageName: {{ . | quote }}
+  {{- end }}
+  bootstrap:
+    initdb:
+      database: ubao
+      owner: ubao
+  storage:
+    size: {{ .Values.cnpg.storage.size }}
+    {{- with .Values.cnpg.storage.storageClass }}
+    storageClass: {{ . }}
+    {{- end }}
+  {{- if .Values.cnpg.backup.enabled }}
+  backup:
+    retentionPolicy: {{ .Values.cnpg.backup.retentionPolicy | quote }}
+    barmanObjectStore:
+      destinationPath: {{ .Values.cnpg.backup.destinationPath | quote }}
+      s3Credentials:
+        accessKeyId: { name: {{ .Values.cnpg.backup.secretName }}, key: ACCESS_KEY_ID }
+        secretAccessKey: { name: {{ .Values.cnpg.backup.secretName }}, key: ACCESS_SECRET_KEY }
+  {{- end }}
+{{- end }}

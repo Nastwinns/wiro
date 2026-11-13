@@ -1,0 +1,19 @@
+{
+  "format": "wiro-bench-scene/1",
+  "generator": "bench/canvas/src/gen-scene.mjs (seed 42, node >= 22, sha256 of JSON.stringify(scene))",
+  "scenes": {
+    "1k-clustered": "9e44752937130a6454202433e9cb0b0641997e70a6502aeb02b2b2d548982048",
+    "1k-uniform": "3b323d8caa5a983133bfb281d901bc7f2932aff0de20b0ecb698811e52000f15",
+    "10k-clustered": "40ece1da0e6914ba5b8a8cc283210df8b00dafc7b8c377fe69a508a010510b08",
+    "10k-uniform": "1e54a6703659c7a2c629907804946f5c30cef9699a40d7a64e347adb6d6b03bc",
+    "25k-clustered": "bca9343fb66aa013b903e293eb1c9770558c46707feb6fbbb9a6ae55039d90b4",
+    "25k-uniform": "be4910481e3b2f861b1eb6b1c17815db0b244f61e772ea63089447b8cb70ce98"
+  },
+  "traces": {
+    "pan": "8ef2823570b90b7c08245683cca14f2d038558c5f02f6c3c53d9d11f5e6cd59c",
+    "zoom": "750a3420a7337fdbb00b229bf33e59719d5d069e4f7ec8aeb3f26bbfd5f37207",
+    "drag": "d02ddb8deb14f49b557e4bcbd07252546948de0410984bfc697bb3d1f0fc4533",
+    "typing": "b099341807abf00afab3bc322f835f0cbfc02744d7c5611f0d7402b9ec99ed8e",
+    "soak": "2dffb3142dedec389962336bdd6eb1f9e51e44adbf7e6e1ea6982e0a666a23ff"
+  }
+}

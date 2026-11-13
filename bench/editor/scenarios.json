@@ -1,0 +1,50 @@
+{
+  "format": "wiro-spike-0.5-scenarios/1",
+  "note": "Inputs are original test strings. 'composition' lists IME steps as [compositionData, commit?]; automation uses CDP Input.imeSetComposition + Input.insertText (Chromium) — Safari/WKWebView and Android Gboard are manual.",
+  "ime": [
+    { "id": "ime-fr-dead-acute", "lang": "fr", "layout": "French AZERTY / macOS ABC-Extended dead keys", "keys": ["dead_acute", "e"], "expected": "é" },
+    { "id": "ime-fr-dead-circ", "lang": "fr", "keys": ["dead_circumflex", "o"], "expected": "ô" },
+    { "id": "ime-fr-sentence", "lang": "fr", "type": "Où est l'équipe déjà réunie à l'hôpital ?", "expected": "Où est l'équipe déjà réunie à l'hôpital ?" },
+    { "id": "ime-wo-sentence", "lang": "wo", "type": "Ñaata la ? Dama bëgg jàng, jërëjëf ci ndimbal.", "expected": "Ñaata la ? Dama bëgg jàng, jërëjëf ci ndimbal." },
+    { "id": "ime-wo-eng", "lang": "wo", "type": "ŋ ñ ë ó à é", "expected": "ŋ ñ ë ó à é" },
+    { "id": "ime-yo-tone-subdot", "lang": "yo", "type": "Ẹ kú iṣẹ́ àná, ọ̀rọ̀ pàtàkì ni.", "expected": "Ẹ kú iṣẹ́ àná, ọ̀rọ̀ pàtàkì ni.", "risk": "combining sequences (base + U+0323 + U+0301); composition may be split across transactions; must not be normalised or reordered silently" },
+    { "id": "ime-yo-decomposed-vs-precomposed", "lang": "yo", "type": "ọ́", "variants": ["\u1ecd\u0301", "o\u0323\u0301", "\u1ecd\u0301"], "expected_equal_after": "NFC" },
+    { "id": "ime-ha-hooked", "lang": "ha", "type": "ɓarna ɗan ƙasa ƴa", "expected": "ɓarna ɗan ƙasa ƴa" },
+    { "id": "ime-ar-basic", "lang": "ar", "dir": "rtl", "type": "اجتماع الفريق يوم الخميس", "expected": "اجتماع الفريق يوم الخميس" },
+    { "id": "ime-ar-harakat", "lang": "ar", "dir": "rtl", "type": "كَتَبَ", "expected": "كَتَبَ", "risk": "harakat are separate code points after base letters" },
+    { "id": "ime-ar-bidi-mixed", "lang": "ar", "dir": "rtl", "type": "الملف report-v2.pdf جاهز 2026", "expected": "الملف report-v2.pdf جاهز 2026", "risk": "caret/selection across LTR runs inside RTL paragraph" },
+    { "id": "ime-cjk-control", "lang": "ja", "note": "control only: long composition with candidate window (pinyin/kana), proves composition handling generically", "composition": [["に"], ["にほ"], ["にほん"]], "commit": "日本", "expected": "日本" }
+  ],
+  "ime_mid_composition_remote_edits": [
+    { "id": "remote-during-composition", "steps": [
+      "A starts composition 'ṣ' (not committed)",
+      "B inserts 'xyz' at the start of the paragraph (remote op lands in A during composition)",
+      "A commits composition",
+      "A and B converge; A's composed text is intact and not duplicated/lost; A caret stays right after committed text"] },
+    { "id": "remote-delete-around-composition", "steps": ["A composing inside word W", "B deletes the whole word W", "A commits", "expect: no crash, committed text present exactly once (or deterministic documented outcome)"] }
+  ],
+  "undo_redo": [
+    { "id": "undo-local-only", "steps": ["A types 'aaa', B types 'bbb' elsewhere", "A undo", "expect: only 'aaa' removed; 'bbb' stays (per-user undo stack)"] },
+    { "id": "undo-after-remote-edit-inside", "steps": ["A types 'hello'", "B inserts '-' inside 'hello' → 'hel-lo'", "A undo", "expect: B's '-' survives; A's remaining chars removed deterministically (document exact outcome)"] },
+    { "id": "redo-after-remote", "steps": ["A types, undoes, B edits same paragraph, A redo", "expect: no exception, document consistent, same on B"] },
+    { "id": "undo-format", "steps": ["A bolds a range, undo, redo", "expect: marks restored with identical range"] },
+    { "id": "undo-ime-commit", "steps": ["A commits 'ọ̀' via IME", "Ctrl+Z", "expect: whole composed grapheme removed in 1 step (not leaving a bare base letter or orphan mark)"] },
+    { "id": "undo-block-ops", "steps": ["A splits paragraph, joins, moves block (drag), undo x3, redo x3", "expect: tree restored each step; order on B identical"] }
+  ],
+  "cursors": [
+    { "id": "cursor-remote-insert-before", "steps": ["A caret at offset 5", "B inserts 3 chars at 0", "expect A caret shifts to 8; B shows A's cursor at 8"] },
+    { "id": "cursor-remote-delete-spanning", "steps": ["A caret inside range [4,9]", "B deletes [2,12]", "expect A caret collapses to 2 (stable), no exception"] },
+    { "id": "selection-across-blocks", "steps": ["A selects from paragraph 1 to paragraph 3", "B deletes paragraph 2", "expect: A selection remains valid (anchor/head resolved)"] },
+    { "id": "awareness-cursor-grapheme", "steps": ["B caret placed after 'ọ̀' (3 code points) → A renders caret after the full grapheme, never between base and mark"] },
+    { "id": "relative-position-roundtrip", "steps": ["PM position -> Loro cursor -> PM position equals original across 1000 random docs (property test)"] }
+  ],
+  "offline_concurrent": [
+    { "id": "offline-both-type-same-paragraph", "steps": ["A, B offline", "A types 'Jërëjëf ' at start; B types 'شكرا ' at start and 'Ẹ kú ' at end", "reconnect (exchange updates both ways, in both orders)", "converge: byte-identical Loro state + identical PM doc JSON; no characters lost/duplicated"] },
+    { "id": "offline-format-vs-delete", "steps": ["A bolds [0,10]", "B deletes [5,15]", "merge", "expect convergence; bold exactly on surviving chars of [0,5]"] },
+    { "id": "offline-block-move-vs-edit", "steps": ["A moves a paragraph to the end", "B edits text inside that paragraph", "merge", "expect: edit preserved at new location"] },
+    { "id": "offline-3-peers-partition", "steps": ["A,B,C all offline 60 s with 200 random edits each", "merge in 6 permutations", "all 6 end states identical"] },
+    { "id": "offline-long-session", "steps": ["peer offline 30 min, 5 000 ops, merge", "time to merge < 2 s, doc size growth documented"] }
+  ],
+  "fuzz": { "peers": [2, 3], "opsPerPeer": 500, "seeds": 200, "ops": ["insertText", "deleteRange", "toggleMark(bold|italic|link)", "splitBlock", "joinBlock", "moveBlock", "setHeadingLevel", "undo", "redo"], "alphabet": "FR+Wolof+Yoruba+Hausa+Arabic code points incl. combining marks, ZWNJ, emoji ZWJ sequence (👩🏿‍💻)", "oracle": "after each full sync: all peers' Loro export equal AND PM doc.toJSON() equal AND PM->Loro->PM roundtrip identity AND NFC-stability check (no normalisation happened)" },
+  "perf": { "docSizes": ["1k words", "20k words", "100k words"], "metrics": ["keystroke-to-render p95 (< 16 ms @20k words)", "initial load from snapshot (< 300 ms @20k words)", "paste 5k words (< 300 ms)", "remote update apply (< 5 ms/op)", "heap after 10 min typing (no unbounded growth)"] }
+}

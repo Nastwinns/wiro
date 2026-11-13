@@ -1,0 +1,266 @@
+{
+ "spec": "wiro-text-norm reference v1 (bench/search/src/norm.mjs rules R1-R9)",
+ "cases": [
+  {
+   "lang": "fr",
+   "in": "Éléphant",
+   "primary": "elephant",
+   "secondary": "e\u0301le\u0301phant"
+  },
+  {
+   "lang": "fr",
+   "in": "ÉLÈVE",
+   "primary": "eleve",
+   "secondary": "e\u0301le\u0300ve"
+  },
+  {
+   "lang": "fr",
+   "in": "garçon",
+   "primary": "garcon",
+   "secondary": "garcon"
+  },
+  {
+   "lang": "fr",
+   "in": "cœur",
+   "primary": "coeur",
+   "secondary": "coeur"
+  },
+  {
+   "lang": "fr",
+   "in": "ﬁn",
+   "primary": "fin",
+   "secondary": "fin"
+  },
+  {
+   "lang": "fr",
+   "in": "Straße",
+   "primary": "strasse",
+   "secondary": "strasse"
+  },
+  {
+   "lang": "en",
+   "in": "Naïve",
+   "primary": "naive",
+   "secondary": "naive"
+  },
+  {
+   "lang": "wo",
+   "in": "Ñaata",
+   "primary": "naata",
+   "secondary": "naata"
+  },
+  {
+   "lang": "wo",
+   "in": "Ŋaan",
+   "primary": "naan",
+   "secondary": "naan"
+  },
+  {
+   "lang": "wo",
+   "in": "bëgg",
+   "primary": "begg",
+   "secondary": "begg"
+  },
+  {
+   "lang": "wo",
+   "in": "jàmm",
+   "primary": "jamm",
+   "secondary": "ja\u0300mm"
+  },
+  {
+   "lang": "wo",
+   "in": "Móol",
+   "primary": "mool",
+   "secondary": "mo\u0301ol"
+  },
+  {
+   "lang": "ha",
+   "in": "ɓarna",
+   "primary": "barna",
+   "secondary": "ɓarna"
+  },
+  {
+   "lang": "ha",
+   "in": "Ɗan",
+   "primary": "dan",
+   "secondary": "ɗan"
+  },
+  {
+   "lang": "ha",
+   "in": "ƙasa",
+   "primary": "kasa",
+   "secondary": "ƙasa"
+  },
+  {
+   "lang": "ha",
+   "in": "ƴa",
+   "primary": "ya",
+   "secondary": "ƴa"
+  },
+  {
+   "lang": "yo",
+   "in": "ọ\u0300rọ\u0300",
+   "primary": "oro",
+   "secondary": "o\u0323\u0300ro\u0323\u0300"
+  },
+  {
+   "lang": "yo",
+   "in": "Ṣé",
+   "primary": "se",
+   "secondary": "s\u0323e\u0301"
+  },
+  {
+   "lang": "yo",
+   "in": "ẹ\u0300ṣẹ\u0300",
+   "primary": "ese",
+   "secondary": "e\u0323\u0300s\u0323e\u0323\u0300"
+  },
+  {
+   "lang": "yo",
+   "in": "ọ\u0300rọ\u0300 (precomposed input)",
+   "note": "NFC precomposed vs decomposed must give same keys",
+   "in2": "ọ\u0300rọ\u0300",
+   "primary": "oro",
+   "secondary": "o\u0323\u0300ro\u0323\u0300"
+  },
+  {
+   "lang": "ar",
+   "in": "كَتَبَ",
+   "primary": "كتب",
+   "secondary": "كتب"
+  },
+  {
+   "lang": "ar",
+   "in": "أحمد",
+   "primary": "احمد",
+   "secondary": "احمد"
+  },
+  {
+   "lang": "ar",
+   "in": "إسلام",
+   "primary": "اسلام",
+   "secondary": "اسلام"
+  },
+  {
+   "lang": "ar",
+   "in": "مدرسة",
+   "primary": "مدرسه",
+   "secondary": "مدرسه"
+  },
+  {
+   "lang": "ar",
+   "in": "علىٰ",
+   "primary": "علي",
+   "secondary": "علي"
+  },
+  {
+   "lang": "ar",
+   "in": "مـــحمد",
+   "note": "tatweel",
+   "primary": "محمد",
+   "secondary": "محمد"
+  },
+  {
+   "lang": "ar",
+   "in": "مؤتمر",
+   "primary": "موتمر",
+   "secondary": "موتمر"
+  },
+  {
+   "lang": "ar",
+   "in": "٢٠٢٦",
+   "primary": "2026",
+   "secondary": "2026"
+  },
+  {
+   "lang": "any",
+   "in": "l’école",
+   "primary": "l'ecole",
+   "secondary": "l'e\u0301cole"
+  },
+  {
+   "lang": "any",
+   "in": "a‌b",
+   "note": "ZWNJ ignorable",
+   "primary": "ab",
+   "secondary": "ab"
+  }
+ ],
+ "tokenize": [
+  {
+   "in": "Ndax am na jàmm ?",
+   "tokens": [
+    "Ndax",
+    "am",
+    "na",
+    "jàmm"
+   ]
+  },
+  {
+   "in": "l’école, c'est là !",
+   "tokens": [
+    "l’école",
+    "c'est",
+    "là"
+   ]
+  },
+  {
+   "in": "اجتماع الفريق",
+   "tokens": [
+    "اجتماع",
+    "الفريق"
+   ]
+  },
+  {
+   "in": "Ṣé ó ti parí?",
+   "tokens": [
+    "Ṣé",
+    "ó",
+    "ti",
+    "parí"
+   ]
+  }
+ ],
+ "equivalence_classes": [
+  [
+   "e",
+   "é",
+   "è",
+   "ê",
+   "ë"
+  ],
+  [
+   "o",
+   "ọ",
+   "ọ\u0300",
+   "ó",
+   "ò"
+  ],
+  [
+   "s",
+   "ṣ"
+  ],
+  [
+   "b",
+   "ɓ"
+  ],
+  [
+   "d",
+   "ɗ"
+  ],
+  [
+   "k",
+   "ƙ"
+  ],
+  [
+   "كتب",
+   "كَتَبَ"
+  ],
+  [
+   "احمد",
+   "أحمد",
+   "إحمد",
+   "آحمد"
+  ]
+ ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@wiro/bench-search",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": { "test": "node --test src/*.test.mjs", "corpus": "node src/gen-corpus.mjs --pages 200 --words 300 --out corpus" }
+}

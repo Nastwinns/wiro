@@ -121,12 +121,12 @@ An open-source (MIT) workspace where African teams **write, draw, plan and decid
 | NFR-S1 | Security | OWASP ASVS L2; SBOM; signed releases; dependency licence gate |
 | NFR-A1 | Accessibility | WCAG 2.2 AA (docs, chrome, canvas object list) |
 | NFR-I1 | i18n | all strings externalised; +30 % text expansion tolerant; RTL-ready |
-| NFR-L1 | Licence | MIT for all code; deps MIT/Apache/BSD/ISC/Zlib (MPL flagged) |
+| NFR-L1 | Licence | MIT OR Apache-2.0 (dual, ADR-0016) for all code; deps MIT/Apache/BSD/ISC/Zlib (MPL flagged) |
 | NFR-D1 | Deploy | install < 15 min on a fresh VPS; air-gapped install documented |
 
 ## 6. Release definition — "MVP commercialisable" (first sellable release, ~3 months)
 Scope stays AFFiNE + Collaboard (not reduced). What gates the **first sale**:
-- **Native iOS/Android apps (Tauri mobile) in v1** (decided 2026-11-10).
+- **Delivery targets: desktop (Windows, macOS) + web, mandatory.** Mobile/tablet = responsive web; no native iOS/Android apps (decision 2026-11-11, ADR-0015; supersedes 2026-11-10).
 - UC1–UC4 excellent end-to-end (E1–E7 complete, E8 export + Markdown/Notion/Excalidraw import, E9 SSO + audit, E11 compose/Helm + admin console, E12 FR/EN).
 - Then continuous releases: E10 AI, Miro import, LAN sync, multi-tenant partner mode, mobile apps, mobile money billing.
 [ASSUMPTION: ordering to be validated in sprint planning]
