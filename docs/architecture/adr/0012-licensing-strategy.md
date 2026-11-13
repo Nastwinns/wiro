@@ -25,6 +25,8 @@ Current position (ADR-0001, AGENTS.md rule 1, brief, README): all code MIT, serv
 ## Recommendation (to validate with counsel)
 Option **B**: everything an organisation needs to host Ubao **for itself** stays MIT (docs, canvas, sync, offline, SSO, audit, self-hosting without caps). Only features whose purpose is **operating Ubao as a service for third parties** are commercial. Fall back to **C** if a single OSI-approved licence is preferred. Reject D. Always publish a **trademark policy** ("Ubao" name and logo are not licensed by MIT) and file the mark (OAPI, ARIPO, EUIPO) before launch.
 
+> **2026-11-11 — ADR-0016** : le mainteneur a retenu A + E pour le code ouvert (MIT OR Apache-2.0). L'option B (modules commerciaux) n'est pas adoptée par cette décision ; reste ouvert : CLA vs DCO, et tout module commercial éventuel (décision séparée).
+
 ## Decisions needed
 1. Licence model (A/B/C/D, plus MIT vs Apache-2.0 for the open part).
 2. Contribution agreement: **CLA** (required for B/C or later relicensing) vs **DCO** (current). Must be decided before the first external contribution.
