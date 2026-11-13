@@ -4,7 +4,7 @@
 // « Soumis à validation » avec puce warning ; sinon signale pour construction manuelle.
 const p = penpotUtils.getPageByName("B07 · Databases");
 await penpot.openPage(p);
-const dark = p.root.children.find(c => /^S-07\.2 Kanban \/ 1440 \/ Dark/.test(c.name));
+const dark = p.root.children.find(c => /^S-07\.2 Kanban \/ 1440 \/ [Dd]ark/.test(c.name));
 if (!dark) return "frame dark introuvable";
 const texts = penpotUtils.findShapes(s => s.type === "text", dark).map(s => s.characters);
 if (texts.includes("Bloqué")) return "déjà fait";
