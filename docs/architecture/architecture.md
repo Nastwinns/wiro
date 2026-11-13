@@ -8,7 +8,7 @@ created: 2026-11-10
 
 ## 1. Context (C4 level 1)
 ```
- Users (desktop app · browser · mobile web)          Admins / Partners
+ Users (desktop app · browser incl. responsive phone/tablet web)          Admins / Partners
           │  local-first edits, sync when online            │
           ▼                                                 ▼
  ┌─────────────────────┐   WebSocket (delta ops)   ┌────────────────────────┐
@@ -61,4 +61,4 @@ TLS everywhere; encryption at rest (server: envelope encryption with KMS/CMK; cl
 | A1 a11y | DOM chrome; canvas object tree mirrored to accessible DOM list |
 
 ## 9. Pending ADRs
-ADR-0004 canvas rendering details (vello_gpu vs custom wgpu) · ADR-0007 search on WASM · ADR-0008 mobile shell (Tauri mobile specifics: WebView perf on low-end Android) · ADR-0009 legal/billing entity.
+ADR-0004 canvas rendering details (vello_gpu vs custom wgpu) · ADR-0007 search on WASM · ADR-0015 responsive web instead of native mobile apps (decided 2026-11-11, supersedes ADR-0008 mobile shell) · ADR-0009 legal/billing entity.

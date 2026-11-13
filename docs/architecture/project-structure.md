@@ -47,7 +47,7 @@ wiro/
 | P1 big-board lag | wiro-canvas, wiro-render, tools/bench |
 | P2 data loss | wiro-storage |
 | P3 offline bolted on | wiro-storage, wiro-sync |
-| P7 capped self-host | apps/server, deploy/* (MIT, no caps) |
+| P7 capped self-host | apps/server, deploy/* (MIT OR Apache-2.0, no caps) |
 | P12 lock-in | wiro-format |
 | P14 hard self-host | deploy/compose, deploy/airgap |
 | A2 data cost | wiro-sync (low-bandwidth mode) |
