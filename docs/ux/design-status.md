@@ -14,7 +14,7 @@ Desktop client + web are mandatory. Mobile/tablet = **responsive web** (390 / 76
 
 ## Not done / open (honest list)
 - **A0 Directions** (A vs B comparison): page empty. Direction A (Malachite) is what the design system uses; the A/B choice is not recorded in an ADR.
-- **B14 Prototype flows**: page empty → see "Prototype" request (pending GO).
+- **B14 Prototype flows**: en construction active (voir « Prototype B14 » plus bas — F5-F11 finis, F1-F4 en cours au 2026-11-13 soir).
 - **Home 390** (S-14.1 responsive): not built. S-14.2 Pricing 390 is built (XOF only).
 - **Dark variants**: S-12.3–S-12.11, most of S-13 states, S-14.x marketing, S-15.2 toolbar menu, S-15.3 synthesis are light only.
 - **States**: S-13.1–13.7 only have the default state (spec does not ask for more); S-15.x agent screens have no empty/loading/offline variants.
@@ -178,3 +178,24 @@ Dot-matrix world map (Natural Earth land, public domain; 3 px squares, 11 px pit
 
 ### Prototype B14
 - Copie en cours par 3 agents (F1-F4 / F5-F8 / F9-F11) avec la regle « clics hors zone » (ajoutee a prototype-flows.md) : clic sur le fond = avancer/revenir dans le flow ; overlay = clic pour fermer. Releves : 22 puis 81 copies ; 0 interaction et 0 flow au dernier releve.
+
+## Revue UI/UX complete (24 pages, 2026-11-13 soir) + suivi
+
+### Releve (lecture seule, ~461 frames)
+- **Rouge (couleurs)** : textes sombre-sur-sombre dans les instances « Tree row » non remappees (B04/B08/B09/S-01.5 Dark) ; tooltips restes clairs (S-05.2 Dark, S-12.7 Dark) ; badge « En revue » `#8a5200` a 2,4:1 en dark (S-01.4/01.5/04.2/15.8/12.7) ; boutons primaires dark a texte sombre (S-16.2/16.4/16.6/16.7) ; B13 Sombre avec texte noir (S-13.2/13.3/13.6/13.7/13.8). → **agent « contrastes dark » en cours** (sources + copies B14).
+- **Rouge (polices)** : « Inter » (non-Tight) dans l'UI de B06, B10, B12 (S-12.1/2/4), B16 (S-16.8/9/10), B02 (SSO/locked/magic), B05 board, B08 wiki. → **agent « polices » en cours** (sources + copies B14).
+- **Orange** : doublons S-10.8-11 entre B10 et B15 (8 frames, copies cote B15 a supprimer) → script `tools/penpot/b15_fix.js` pret (supprime l'identique, signale le divergent) ; noms de frames hors convention (Light lowercase, FR/EN melange, segments manquants) → `tools/penpot/rename_frames.js` a lancer en fin de chaine ; orphelins texte racine B15 (4 etiquettes de zone, volontaires, gardees comme sur les autres pages).
+
+### Tranches decidees (complete design-decisions.md)
+- **Fraunces applicatif** : autorise pour titres de page Home et grands titres d'etats vides (moment editorial) ; interdit ailleurs que page C. Frames en l'etat, reglee par la presente.
+- **« Abonnement » B10 vs B11** : les deux sont legitimes (facturation workspace vs licence serveur). Libelle B11 a renommer « Licence » en passe finale pour lever l'ambiguite de navigation.
+- **S-05.1 « Board » (142 enfants) vs « Board page » (29)** : arbitrage en passe finale apres comparaison PNG ; la copie F2 utilise « Board page ».
+
+### Prototype B14 (mesure 2026-11-13 soir)
+- F5-F8 : finished (P2) — 57 frames, 489 interactions, flows nommes corrects.
+- F9-F11 : finished (P3) — 51 frames, 99 interactions, flows F9/F9b/F9c/F9d/F10/F11.
+- F1 : 12 frames copiees ; **flow F1 supprime par erreur (bug rename Penpot)** → P1 le recree depuis S-02.1 Sign in.
+- F2 : 12/24 frames posees (Home, Proto x3, Shell x3, palette, inbox, board, toolbar) ; F2-F4 copie + cablage + flows repris par P1.
+- **Pieges Penpot confirmes** : (1) `flow.name =` renomme le MAUVAIS flow — renommer = removeFlow + createFlow ; (2) chaque `addInteraction` hors flow cree un « Flow N » automatique — nettoyage en passe finale ; (3) l'onglet plugin en veille suspend toutes les sessions (retries des agents, eveil par clic humain).
+- Passe finale orchestrateur (scripts prets) : `b15_fix.js` → `rename_frames.js` → `proto_map.js` (carte des parcours + liens sidebar) → consolidation flows (delete+recreate, noms exacts) → `design-status` + memoire + commit.
+- **Demo partielle possible des maintenant** avec les flows F5-F11 (bases de donnees → server admin → extensions → IA → etats systeme) ; demo complete des que F2-F4 cablés.
