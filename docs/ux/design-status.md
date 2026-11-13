@@ -150,3 +150,31 @@ Dot-matrix world map (Natural Earth land, public domain; 3 px squares, 11 px pit
 - **Prototype (B14)** : en cours. 3 agents copient les frames par flow (propriétaires : F1–F4, F5–F8, F9–F11 — voir `docs/ux/prototype-flows.md`) puis câblent les interactions et créent les flows Penpot. À 22 h 12 : 10 frames copiées, 0 interaction, 0 flow. Les agents peuvent avoir été interrompus (onglet Penpot en veille) : **au redémarrage, relancer `s14`-like (compter frames/interactions/flows sur B14) et relancer les agents manquants** avec les mêmes consignes (copie idempotente : `EXISTS` si déjà copiée).
 - **Reste après B14** : navigation transverse (sidebar/Home) + frame « Carte des parcours » ; contrôle visuel des sombres (24 non relus) ; correctifs connus (S-06.4 icônes carrées, S-10.6 chevauchement « Étape 2 sur… », S-15.8 avatars clairs, S-12.5 contrastes, icônes smartphone sur cartes Download) ; lien « Présenter » à créer par le mainteneur dans Penpot ; sessions de test (`docs/ux/prototype-test-script.md`).
 - **Docs/ADR** (non commités, 2 worktrees) : ADR-0015 (responsive web, supersede 0008), ADR-0016 (MIT OR Apache-2.0), LICENSE-MIT/APACHE/NOTICE, mobile→responsive dans epics/PRD/plan, design-status, prototype-plan/flows/test-script.
+
+## Revue de coherence — resultats 2026-11-13
+
+### Coquilles (5 agents)
+- **Corrige** : ~700 textes (espaces doubles FR, apostrophes droites, ponctuation) sur A0, B01-B11, B13 ; 1 frame vide et 6 doublons strictes supprimes ; orphelins retires.
+- **Restants signales (non bloquants)** : mentions de licence « MIT » dans des maquettes marketing ; « Mobile » en pied de page ; cartes Download avec icone smartphone.
+
+### Revue UI/UX (partielle : 00, A0-A6, B01)
+- **Jetons** : `#8a5200` (warning) hors bibliotheque, present dans ~10 frames + planches A1-A4 → creer un jeton warning.
+- **Contraste sombre** : badge « En revue » 2,4:1 sur S-01.4/S-01.5 Dark → remap a faire.
+- **Decore** : A0 Direction A vs B construit ; statut « a trancher apres test utilisateur » pose sur la page ; `ARCHIVE` A5 et legendes orphelines = decores acceptes.
+
+### Revue fonctionnelle (spec vs frames, 2 agents) — points rouges
+1. S-14.3 Souverain sans corps (modeles de deploiement, conformite, securite, annuaire, etudes de cas).
+2. S-08.1 Wiki page sans corps (couverture, titre, badge verifiee, sommaire, pages liees).
+3. S-07.1 « Vide » = texte « espace vide » de S-01.2 au lieu d'une base vide.
+4. S-12.10 sans liste des 3 plus gros espaces avec « Liberer ».
+5. **Personal Cloud absente des pricing** → DECISION MAINTENEUR 2026-11-13 : trop tot, pas de frames ; prix provisionnes (500 XOF / 1 150 NGN / 115 KES / 0,80 EUR par membre/mois) documentes dans la spec 14 ; la carte Personal Cloud revient dans la pricing page a l'ouverture du palier (post-v1). La mention Personal Cloud ajoutee par le mainteneur dans Penpot est conservee.
+6. S-15.7 sans « Clients connectes » ni snippets de config (Claude Desktop, OpenCode, Cursor, VS Code).
+7. S-04.3 menu de bloc absent.
+8. S-04.1 etats lecture seule/verrouille/hors ligne sans frames doc.
+9. Palette de commandes : sections Pages/Parametres et etats vide/aucun resultat/hors ligne absents.
+10. Votes S-06.3 : noms du panneau vs badges divergents.
+11. S-10.8 Billing : factures differentes entre Light/Dark et Add seats.
++ ~30 points oranges detailles dans les rapports (terminologie « Mode faible debit » vs « economie de donnees », roles B10, versions 0.9.2/1.4.2, S-15.1 etats off/hors ligne/erreur, etc.).
+
+### Prototype B14
+- Copie en cours par 3 agents (F1-F4 / F5-F8 / F9-F11) avec la regle « clics hors zone » (ajoutee a prototype-flows.md) : clic sur le fond = avancer/revenir dans le flow ; overlay = clic pour fermer. Releves : 22 puis 81 copies ; 0 interaction et 0 flow au dernier releve.
