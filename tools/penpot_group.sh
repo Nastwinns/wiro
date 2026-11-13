@@ -14,7 +14,7 @@ MANIFEST="${1:?usage: penpot_group.sh <manifest.json> [outdir]}"
 OUTDIR="${2:-cache/penpot/group}"
 mkdir -p "$OUTDIR"
 python3 - "$MANIFEST" "$OUTDIR" <<'PY'
-import sys, json, os, subprocess, re
+import sys, json, os, subprocess, re, time
 manifest, outdir = sys.argv[1], sys.argv[2]
 groups = json.load(open(manifest))
 for g in groups:

@@ -23,7 +23,7 @@ penpot_group.sh manifest.json       # 1-2 appels : fixes liste blanche + re-scan
 Un job de vérification = snippet qui relit la page en fin de groupe et retourne les compteurs (vides restants, doublons…). Pas de « re-scan complet » séparé.
 
 ## Modes de défaillance et parades
-- **« tab appears to be suspended … no heartbeat »** : l'onglet s'est gelé (Brave/Memory Saver). Parade : onglet **épinglé** dans Brave, exception Memory Saver pour `design.penpot.app`, keepalive léger (~1 appel/3 s de `"hb"`) pendant les gros travaux. Un onglet en gel profond ne se réveille que par un **clic humain**.
+- **« tab appears to be suspended … no heartbeat »** : l'onglet s'est gelé (Brave/Memory Saver). **Le keepalive ne suffit PAS** : il maintient un onglet éveillé mais ne peut ni le réveiller ni empêcher une mise en veille profonde. Traitements obligatoires côté navigateur : exception **« sites jamais en veille »** pour `design.penpot.app` dans `brave://settings/performance` (ou Memory Saver off) + onglet **épinglé** ; et `caffeinate -dimsu` côté Mac. Un onglet en gel profond ne se réveille que par un **clic humain**.
 - **« No Penpot instance connected »** : Penpot/plugin redémarré ou onglet fermé → réouvrir le fichier + lancer le plugin, puis relancer les jobs FAILED.
 - **Retry pattern obligatoire** dans toute boucle : `suspended|frozen|No Penpot instance|ECONN|refused|timed out` (les patterns courts type « suspended|frozen » only ont fait perdre ~1 h le 2026-11-13).
 - **Scripts idempotents par construction** : skip si `EXISTS`/`.done`/`vdone`, suppression seulement des doublons stricts. Un crash en plein batch doit être relançable sans tri.

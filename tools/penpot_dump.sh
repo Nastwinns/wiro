@@ -47,6 +47,6 @@ out = sys.argv[1]
 s = json.dumps(d, ensure_ascii=False, separators=(",", ":"))
 open(out, "w").write(s)
 nf = len(d["frames"])
-ns = s.count('"n":')
+ns = s.count(chr(34) + "n" + chr(34) + ":")
 print("dumped %s — %d frames, ~%d shapes, %d KB" % (out, nf, ns, round(len(s) / 1024)))
 ' "$OUT"
