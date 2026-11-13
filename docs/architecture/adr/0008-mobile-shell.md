@@ -1,6 +1,6 @@
 # ADR-0008 — Mobile shell
 
-- Status: **proposed** (decision by Jean Balin)
+- Status: **superseded by [0015](0015-responsive-web-no-native-mobile.md)** (maintainer decision 2026-11-11: no native mobile apps; responsive web instead). Kept for history.
 - Date: 2026-11-10
 
 ## Context
@@ -35,7 +35,7 @@ Devices: D1 Android 4 GB / Mali-G52 class (Android 10), D2 Android 3 GB / Adreno
 Decision rule: A go if Go on D3/D4 and Acceptable (≤ 1.5× thresholds) on D1/D2; otherwise ship B/C for Android and re-evaluate.
 
 ## Decision
-_pending — after Story 0.4 measurements._
+Superseded: the maintainer decided on 2026-11-11 that the product ships as desktop client + web only; phones/tablets use the responsive web app. See ADR-0015. The options and measurement protocol above are kept only as a record.
 
 ## Consequences
 - `wiro-storage`/`wiro-sync` must run in both native and WASM; CI builds Android/iOS shells from S0.

@@ -31,7 +31,7 @@ Decomposition of PRD v0.2 (E1–E12 FR groups), NFRs, architecture (ADR-0002/000
 | E10 AI | post-v1 (not in this breakdown) |
 | E11 Server/sovereign | EP4, EP11 |
 | E12 Localisation | EP10 |
-| Mobile (decided v1) | EP12 |
+| Responsive web for phones/tablets (decided 2026-11-11: no native mobile apps) | EP12 |
 | GTM | EP13 |
 
 ## Epic List
@@ -49,7 +49,7 @@ Decomposition of PRD v0.2 (E1–E12 FR groups), NFRs, architecture (ADR-0002/000
 | EP9 | Identity, admin & security | S7 |
 | EP10 | Import/export & localisation | S7 |
 | EP11 | Sovereign server & operations | S8 |
-| EP12 | Mobile apps (Tauri iOS/Android) | S4b–S8 |
+| EP12 | Responsive web (phone 390 / tablet 768 in the browser) | S4–S8 |
 | EP13 | Landing & go-to-market | S8 (content from W1) |
 | EP14 | Extensions, certification & migration (mandatory plugins) | S4-S8 |
 
@@ -91,15 +91,15 @@ So that Penpot and code share one source of truth.
 - [ ] changing a token and running the build updates CSS/TS/Rust outputs
 - [ ] light/dark themes switch via a data attribute
 
-### Story 0.4: Tauri 2 shells desktop + mobile
+### Story 0.4: Tauri 2 desktop shell (Windows, macOS)
 
 As a user,
-I want the app to launch on Windows, macOS, iOS and Android with an empty shell,
+I want the app to launch on Windows and macOS with an empty shell,
 So that we validate packaging early.
 
 **Acceptance Criteria:**
 
-- [ ] signed dev builds exist for the 4 targets
+- [ ] signed dev builds exist for the 2 desktop targets
 - [ ] WASM engine loads inside each webview and reports GPU backend (WebGPU/WebGL2)
 
 ### Story 0.5: Loro + ProseMirror spike
@@ -734,11 +734,11 @@ So that v1 is tender-ready.
 - [ ] SBOM published per release
 - [ ] a11y audit report with zero blockers
 
-## EP12: Mobile apps (Tauri iOS/Android)
+## EP12: Responsive web (phone & tablet browsers)
 
-Users contribute from phones and tablets. *(sprint S4b–S8)*
+No native iOS/Android apps (ADR-0015, 2026-11-11); phones/tablets use the responsive web app. *(sprints S4–S8)*
 
-### Story 12.1: Mobile navigation & docs
+### Story 12.1: Responsive navigation & docs
 
 As a mobile user,
 I want bottom bar, page tree and full doc editing (S-13.1–13.3),
@@ -746,10 +746,10 @@ So that I work from my phone.
 
 **Acceptance Criteria:**
 
-- [ ] works on 360 px low-end Android
+- [ ] works at 360–390 px on a low-end Android browser
 - [ ] offline per workspace
 
-### Story 12.2: Mobile board & workshop participant
+### Story 12.2: Responsive board & workshop participant
 
 As a guest on phone (P5),
 I want to add stickies, vote and follow on mobile (S-13.4/13.5),
@@ -762,22 +762,14 @@ So that I take part in workshops.
 ### Story 12.3: Tablet canvas
 
 As a designer,
-I want pencil/stylus canvas with palm rejection (S-13.7),
+I want a touch/stylus canvas via pointer events (S-13.7, S-13.8),
 So that tablets are first-class.
 
 **Acceptance Criteria:**
 
 - [ ] pressure pen; finger pans
 
-### Story 12.4: Store releases
-
-As a maintainer,
-I want App Store and Play releases with CI signing,
-So that users install officially.
-
-**Acceptance Criteria:**
-
-- [ ] TestFlight & Play internal track by S6; public at v1
+### Story 12.4: ~~Store releases~~ — removed (ADR-0015)
 
 ## EP13: Landing & go-to-market
 
