@@ -5,7 +5,7 @@
 **Write, draw, plan and decide — together.**
 Open-source docs + infinite canvas, local-first, built in Rust, self-hostable. Designed for African teams first.
 
-`pre-alpha · planning in public` · MIT
+`pre-alpha · planning in public` · MIT OR Apache-2.0
 
 </div>
 
@@ -18,7 +18,7 @@ Teams across Africa juggle Notion, Miro and Slack — billed in dollars by card,
 - **stays fast** on modest laptops and phones (target: 60 fps with 10 000 objects)
 - **saves data** with a low-bandwidth mode and a data-usage meter
 - **runs where you need it**: your server, a national cloud, or fully air-gapped
-- is **100 % MIT** — client *and* server, no capped self-hosting
+- is **100 % MIT OR Apache-2.0** (your choice) — client *and* server, no capped self-hosting
 
 ## Launch use cases
 1. **Workshops & retros** — stickies, voting, timer, private mode, guests without accounts
@@ -29,7 +29,7 @@ Teams across Africa juggle Notion, Miro and Slack — billed in dollars by card,
 ## Stack (decided so far)
 | Layer | Choice | ADR |
 |---|---|---|
-| Shell | Tauri 2 — desktop (Windows, macOS) + iOS/Android | [0002](docs/architecture/adr/0002-ui-shell.md) |
+| Shell | Tauri 2 — desktop (Windows, macOS) + responsive web (no native mobile apps) | [0002](docs/architecture/adr/0002-ui-shell.md) |
 | UI chrome | TypeScript + shadcn/ui, design tokens | 0002 |
 | Canvas | Rust → WASM, GPU rendering (wgpu: WebGPU / WebGL2) | 0004 (pending) |
 | Sync | Loro CRDT | [0003](docs/architecture/adr/0003-crdt-engine.md) |
@@ -52,4 +52,4 @@ We are in the **planning phase** and building in public:
 Contributions, translations (Swahili first!) and feedback are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
-[MIT](LICENSE) · Third-party notices: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+Dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option ([ADR-0016](docs/architecture/adr/0016-dual-licence-mit-apache.md)). The Ubao name and logos are not covered by the licences ([NOTICE](NOTICE)) · Third-party notices: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)

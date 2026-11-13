@@ -8,7 +8,7 @@ inputs: docs/research/competitive-audit.md, docs/product/market-offer-study.md, 
 # PRD
 
 ## 1. Vision
-An open-source (MIT) workspace where African teams **write, draw, plan and decide together** — docs and infinite canvas in one place, fast on modest hardware, usable offline, deployable on sovereign infrastructure.
+An open-source (MIT OR Apache-2.0) workspace where African teams **write, draw, plan and decide together** — docs and infinite canvas in one place, fast on modest hardware, usable offline, deployable on sovereign infrastructure.
 
 ## 2. Personas
 | ID | Persona | Context | Job to be done |
@@ -121,14 +121,14 @@ An open-source (MIT) workspace where African teams **write, draw, plan and decid
 | NFR-S1 | Security | OWASP ASVS L2; SBOM; signed releases; dependency licence gate |
 | NFR-A1 | Accessibility | WCAG 2.2 AA (docs, chrome, canvas object list) |
 | NFR-I1 | i18n | all strings externalised; +30 % text expansion tolerant; RTL-ready |
-| NFR-L1 | Licence | MIT for all code; deps MIT/Apache/BSD/ISC/Zlib (MPL flagged) |
+| NFR-L1 | Licence | MIT OR Apache-2.0 (dual, ADR-0016) for all code; deps MIT/Apache/BSD/ISC/Zlib (MPL flagged) |
 | NFR-D1 | Deploy | install < 15 min on a fresh VPS; air-gapped install documented |
 
 ## 6. Release definition — "MVP commercialisable" (first sellable release, ~3 months)
 Scope stays AFFiNE + Collaboard (not reduced). What gates the **first sale**:
-- **Native iOS/Android apps (Tauri mobile) in v1** (decided 2026-11-10).
+- **Delivery targets: desktop (Windows, macOS) + web, mandatory.** Mobile and tablet are covered by the responsive web app; no native iOS/Android apps (decision 2026-11-11, supersedes 2026-11-10).
 - UC1–UC4 excellent end-to-end (E1–E7 complete, E8 export + Markdown/Notion/Excalidraw import, E9 SSO + audit, E11 compose/Helm + admin console, E12 FR/EN).
-- Then continuous releases: E10 AI, Miro import, LAN sync, multi-tenant partner mode, mobile apps, mobile money billing.
+- Then continuous releases: E10 AI, Miro import, LAN sync, multi-tenant partner mode, mobile money billing.
 [ASSUMPTION: ordering to be validated in sprint planning]
 
 ## 7. Success metrics
@@ -138,4 +138,4 @@ Scope stays AFFiNE + Collaboard (not reduced). What gates the **first sale**:
 - Quality: crash-free sessions ≥ 99.5 %; zero data-loss incidents.
 
 ## 8. Open questions
-Name (candidate Ubao); pricing grid NGN/KES (XOF decided ~2 000/editor); partner programme terms;  which countries host Team Cloud first; trademark filings (OAPI/ARIPO).
+Name (candidate Ubao); pricing grid NGN/KES (decided 2026-11-11, see spec 14 S-14.2); partner programme terms;  which countries host Team Cloud first; trademark filings (OAPI/ARIPO).
