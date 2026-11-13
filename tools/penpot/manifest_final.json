@@ -1,0 +1,8 @@
+[
+  { "name": "b15_fix",      "page": "B15 · IA & agents (MCP)",           "files": ["tools/penpot/b15_fix.js"] },
+  { "name": "rename_frames", "page": "B05 · Board",                       "files": ["tools/penpot/rename_frames.js"] },
+  { "name": "b11_licence",  "page": "B11 · Server admin",                  "files": ["tools/penpot/jobs/b11_licence.js"] },
+  { "name": "proto_map",    "page": "B14 · Prototype flows",               "files": ["tools/penpot/proto_map.js"] },
+  { "name": "flows_final",  "page": "B14 · Prototype flows",               "files": ["tools/penpot/flows_final.js"] },
+  { "name": "proto_verify", "page": "B14 · Prototype flows",               "files": ["tools/penpot/proto_verify.js"] }
+]
