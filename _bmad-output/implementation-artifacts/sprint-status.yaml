@@ -29,7 +29,7 @@ stories:
     sprint: S0
     status: backlog
   - id: "0.4"
-    title: "Tauri 2 shells desktop + mobile"
+    title: "Tauri 2 desktop shell (Windows, macOS)"
     epic: EP0
     sprint: S0
     status: backlog
@@ -304,25 +304,25 @@ stories:
     sprint: S8
     status: backlog
   - id: "12.1"
-    title: "Mobile navigation & docs"
+    title: "Responsive navigation & docs"
     epic: EP12
-    sprint: S4b-S8
+    sprint: S4-S8
     status: backlog
   - id: "12.2"
-    title: "Mobile board & workshop participant"
+    title: "Responsive board & workshop participant (mobile browser)"
     epic: EP12
-    sprint: S4b-S8
+    sprint: S4-S8
     status: backlog
   - id: "12.3"
-    title: "Tablet canvas"
+    title: "Tablet canvas (touch/stylus, web)"
     epic: EP12
-    sprint: S4b-S8
+    sprint: S4-S8
     status: backlog
   - id: "12.4"
-    title: "Store releases"
+    title: "Store releases (removed: no native mobile apps, 2026-11-11)"
     epic: EP12
-    sprint: S4b-S8
-    status: backlog
+    sprint: S4-S8
+    status: dropped
   - id: "13.1"
     title: "Landing home"
     epic: EP13
@@ -336,5 +336,45 @@ stories:
   - id: "13.3"
     title: "Sovereign & partners pages"
     epic: EP13
+    sprint: S8
+    status: backlog
+  - id: "14.1"
+    title: "Plugin host, manifest & permissions"
+    epic: EP14
+    sprint: S4
+    status: backlog
+  - id: "14.2"
+    title: "Plugin SDK & CLI"
+    epic: EP14
+    sprint: S5
+    status: backlog
+  - id: "14.3"
+    title: "Marketplace, install consent & manage extensions"
+    epic: EP14
+    sprint: S8
+    status: backlog
+  - id: "14.4"
+    title: "Certification pipeline & signing"
+    epic: EP14
+    sprint: S8
+    status: backlog
+  - id: "14.5"
+    title: "Mandatory import plugins"
+    epic: EP14
+    sprint: S7
+    status: backlog
+  - id: "14.6"
+    title: "Mandatory export plugins"
+    epic: EP14
+    sprint: S7
+    status: backlog
+  - id: "14.7"
+    title: "Mandatory plugin bundle & air-gapped mirror"
+    epic: EP14
+    sprint: S8
+    status: backlog
+  - id: "14.8"
+    title: "Developer portal & contribution guide"
+    epic: EP14
     sprint: S8
     status: backlog

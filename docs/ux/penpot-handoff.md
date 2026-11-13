@@ -1,6 +1,6 @@
 ---
 title: Handoff — generate the UI in Penpot with OpenCode (local)
-status: ready v0.1
+status: v0.2 — 2026-11-11 (file `wiro`, single file; see docs/ux/design-status.md)
 created: 2026-11-10
 ---
 
@@ -57,7 +57,7 @@ Work file by file; one prompt per step. Each prompt = "Read docs/ux/screens/<fil
 | B10 | S-10.1–S-10.9 Settings & admin incl. fair-billing page (10-settings-admin.md) |
 | B11 | S-11.1–S-11.6 Server admin console (11-server-admin.md) |
 | B12 | S-12.x System states applied to Doc, Board, Home (12-system-states.md) |
-| B13 | S-13.x Mobile 390/360 & tablet (13-mobile-tablet.md) |
+| B13 | S-13.x Responsive web 390 / 768 — no native apps (13-mobile-tablet.md) |
 | B14 | Prototype flows: onboarding → home → new board → workshop (timer+vote) → doc with live frame → share guest link |
 
 ### Phase C — Marketing (`Wiro — Marketing`)
@@ -74,3 +74,8 @@ Work file by file; one prompt per step. Each prompt = "Read docs/ux/screens/<fil
 
 ## 4. Definition of done (per screen)
 Spec IDs covered · all states present · light + dark · 1366 + 1440 (+ mobile where listed) · tokens only · a11y annotations (focus order, labels) · copy in FR with EN keys · reviewed (impeccable) · linked in prototype if part of a flow.
+
+## 5. Status & tooling (2026-11-11)
+- Real state of every screen: `docs/ux/design-status.md` (measured from Penpot). Single Penpot file `wiro` with pages 00, A1–A6, B01–B16, C.
+- Scripted access: `tools/penpot_call.sh` (+ `tools/penpot/lib.js` helpers), `tools/design_matrix.py`; agent rules in `docs/ux/penpot-agent-brief.md`; library catalog in `design/penpot/library-catalog.md`.
+- Lessons: the plugin tab must stay visible (else MCP suspends); only one page is active at a time, so parallel agents must `openPage` at the start of every call; shapes cannot be moved across pages by API — workaround = `createComponent` → `instance()` on the target page → `detach()` → remove the main.
